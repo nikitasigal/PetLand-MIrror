@@ -9,8 +9,8 @@ import FirebaseAuth
 import Foundation
 
 protocol AuthManagerProtocol {
-    func login(email: String, password: String, completion: @escaping (Error?) -> Void)
-    func register(email: String, password: String, completion: @escaping (Error?) -> Void)
+    func login(email: String, password: String, _ completion: @escaping (Error?) -> Void)
+    func register(email: String, password: String, _ completion: @escaping (Error?) -> Void)
     func logout()
     var currentUserID: String? { get }
 }
@@ -28,7 +28,7 @@ final class AuthManager {
 
 extension AuthManager: AuthManagerProtocol {
     func login(email: String, password: String,
-               completion: @escaping (Error?) -> Void)
+               _ completion: @escaping (Error?) -> Void)
     {
         Auth.auth().signIn(withEmail: email, password: password) { authResult, error in
             completion(error)
@@ -36,7 +36,7 @@ extension AuthManager: AuthManagerProtocol {
     }
 
     func register(email: String, password: String,
-                  completion: @escaping (Error?) -> Void)
+                  _ completion: @escaping (Error?) -> Void)
     {
         Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
             completion(error)

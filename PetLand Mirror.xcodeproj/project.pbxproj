@@ -31,6 +31,9 @@
 		FF9AC92A29564450001FCB3A /* RegisterInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF9AC92929564450001FCB3A /* RegisterInteractor.swift */; };
 		FF9AC92C29564459001FCB3A /* RegisterPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF9AC92B29564459001FCB3A /* RegisterPresenter.swift */; };
 		FF9AC92E29564A84001FCB3A /* FirestoreDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF9AC92D29564A84001FCB3A /* FirestoreDocument.swift */; };
+		FF9AC93029566193001FCB3A /* LoginProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF9AC92F29566193001FCB3A /* LoginProtocols.swift */; };
+		FF9AC93229566225001FCB3A /* LoginInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF9AC93129566225001FCB3A /* LoginInteractor.swift */; };
+		FF9AC9342956622C001FCB3A /* LoginPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF9AC9332956622C001FCB3A /* LoginPresenter.swift */; };
 		FFB35C32293BCA5600E11ED3 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FFB35C31293BCA5600E11ED3 /* GoogleService-Info.plist */; };
 		FFB35C35293BCB9A00E11ED3 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = FFB35C34293BCB9A00E11ED3 /* FirebaseAnalytics */; };
 		FFB35C37293BCB9A00E11ED3 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = FFB35C36293BCB9A00E11ED3 /* FirebaseAuth */; };
@@ -92,6 +95,9 @@
 		FF9AC92929564450001FCB3A /* RegisterInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterInteractor.swift; sourceTree = "<group>"; };
 		FF9AC92B29564459001FCB3A /* RegisterPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterPresenter.swift; sourceTree = "<group>"; };
 		FF9AC92D29564A84001FCB3A /* FirestoreDocument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreDocument.swift; sourceTree = "<group>"; };
+		FF9AC92F29566193001FCB3A /* LoginProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginProtocols.swift; sourceTree = "<group>"; };
+		FF9AC93129566225001FCB3A /* LoginInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginInteractor.swift; sourceTree = "<group>"; };
+		FF9AC9332956622C001FCB3A /* LoginPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPresenter.swift; sourceTree = "<group>"; };
 		FFB35C31293BCA5600E11ED3 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		FFB35C40293BD10600E11ED3 /* Navigation.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Navigation.storyboard; sourceTree = "<group>"; };
 		FFB35C42293BDEDA00E11ED3 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
@@ -141,6 +147,9 @@
 			isa = PBXGroup;
 			children = (
 				FF2751C92922582600686D9D /* LoginVC.swift */,
+				FF9AC92F29566193001FCB3A /* LoginProtocols.swift */,
+				FF9AC93129566225001FCB3A /* LoginInteractor.swift */,
+				FF9AC9332956622C001FCB3A /* LoginPresenter.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -456,6 +465,7 @@
 				FFD0F006293D35DB00A1368E /* DetailVC.swift in Sources */,
 				FFD0EFFF293D22FE00A1368E /* MarketplacePresenter.swift in Sources */,
 				FF9AC92C29564459001FCB3A /* RegisterPresenter.swift in Sources */,
+				FF9AC93229566225001FCB3A /* LoginInteractor.swift in Sources */,
 				FF2751CD29226E2600686D9D /* AuthManager.swift in Sources */,
 				FF9AC928295643EF001FCB3A /* RegisterProtocols.swift in Sources */,
 				FFD0F00F293E22CC00A1368E /* CreateInteractor.swift in Sources */,
@@ -465,6 +475,7 @@
 				FFB35C4D293CFD2300E11ED3 /* MarketplaceCellVC.swift in Sources */,
 				FFD0F00D293E22AC00A1368E /* CreateVC.swift in Sources */,
 				FF04C849293291C800FDDDAD /* RegisterVC.swift in Sources */,
+				FF9AC93029566193001FCB3A /* LoginProtocols.swift in Sources */,
 				FFE220AD29524FCE00D85230 /* ImagePickerCell.swift in Sources */,
 				FF9AC91B29560744001FCB3A /* SubmitButtonCell.swift in Sources */,
 				FF9AC92E29564A84001FCB3A /* FirestoreDocument.swift in Sources */,
@@ -472,6 +483,7 @@
 				FF02C1A3294A029F007E1D07 /* RangeCell.swift in Sources */,
 				FF6C0487294B2BD900F09AC7 /* UserModel.swift in Sources */,
 				FF9AC91D29560C78001FCB3A /* ValidatedCell.swift in Sources */,
+				FF9AC9342956622C001FCB3A /* LoginPresenter.swift in Sources */,
 				FF9AC92A29564450001FCB3A /* RegisterInteractor.swift in Sources */,
 				FF2751CA2922582600686D9D /* LoginVC.swift in Sources */,
 				FFD0F013293E22E200A1368E /* CreateProtocols.swift in Sources */,

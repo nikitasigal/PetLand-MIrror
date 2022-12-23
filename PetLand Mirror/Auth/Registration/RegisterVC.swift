@@ -16,7 +16,6 @@ final class RegisterVC: UIViewController {
 
     // MARK: Internal vars
 
-    private let authManager: AuthManagerProtocol = AuthManager.shared
     private var textFieldCells: [[ValidatedTextFieldCell]]!
     private var submitCell: SubmitButtonCell!
     private var cells: [[ValidatedCell]]!
