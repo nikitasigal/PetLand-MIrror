@@ -54,7 +54,7 @@
 		FFD70600293E36BD00C36FDC /* CurrencyFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFD705FF293E36BD00C36FDC /* CurrencyFormatter.swift */; };
 		FFDF124829378F8E0046FEF0 /* ValidatedTextFieldCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFDF124729378F8E0046FEF0 /* ValidatedTextFieldCell.swift */; };
 		FFE220AA29523D3200D85230 /* ValidatedTextFieldCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FFE220A929523D3200D85230 /* ValidatedTextFieldCell.xib */; };
-		FFE220AD29524FCE00D85230 /* SelectImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFE220AC29524FCE00D85230 /* SelectImageCell.swift */; };
+		FFE220AD29524FCE00D85230 /* ImagePickerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFE220AC29524FCE00D85230 /* ImagePickerCell.swift */; };
 		FFE220AF29524FFD00D85230 /* DescriptionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFE220AE29524FFD00D85230 /* DescriptionCell.swift */; };
 		FFE220B12953041600D85230 /* SelectAnimalCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFE220B02953041600D85230 /* SelectAnimalCell.swift */; };
 /* End PBXBuildFile section */
@@ -102,7 +102,7 @@
 		FFD705FF293E36BD00C36FDC /* CurrencyFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyFormatter.swift; sourceTree = "<group>"; };
 		FFDF124729378F8E0046FEF0 /* ValidatedTextFieldCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidatedTextFieldCell.swift; sourceTree = "<group>"; };
 		FFE220A929523D3200D85230 /* ValidatedTextFieldCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ValidatedTextFieldCell.xib; sourceTree = "<group>"; };
-		FFE220AC29524FCE00D85230 /* SelectImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectImageCell.swift; sourceTree = "<group>"; };
+		FFE220AC29524FCE00D85230 /* ImagePickerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePickerCell.swift; sourceTree = "<group>"; };
 		FFE220AE29524FFD00D85230 /* DescriptionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionCell.swift; sourceTree = "<group>"; };
 		FFE220B02953041600D85230 /* SelectAnimalCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectAnimalCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -313,7 +313,7 @@
 		FFE220AB29524FB300D85230 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
-				FFE220AC29524FCE00D85230 /* SelectImageCell.swift */,
+				FFE220AC29524FCE00D85230 /* ImagePickerCell.swift */,
 				FFE220AE29524FFD00D85230 /* DescriptionCell.swift */,
 				FFE220B02953041600D85230 /* SelectAnimalCell.swift */,
 			);
@@ -429,7 +429,7 @@
 				FFB35C4D293CFD2300E11ED3 /* MarketplaceCellVC.swift in Sources */,
 				FFD0F00D293E22AC00A1368E /* CreateVC.swift in Sources */,
 				FF04C849293291C800FDDDAD /* RegistrationVC.swift in Sources */,
-				FFE220AD29524FCE00D85230 /* SelectImageCell.swift in Sources */,
+				FFE220AD29524FCE00D85230 /* ImagePickerCell.swift in Sources */,
 				FFE220AF29524FFD00D85230 /* DescriptionCell.swift in Sources */,
 				FF02C1A3294A029F007E1D07 /* RangeCell.swift in Sources */,
 				FF6C0487294B2BD900F09AC7 /* UserModel.swift in Sources */,

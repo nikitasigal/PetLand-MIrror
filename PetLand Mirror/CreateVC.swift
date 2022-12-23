@@ -12,7 +12,7 @@ class CreateVC: UIViewController {
     
     @IBOutlet var tableView: UITableView!
     
-    var imageCell: SelectImageCell!
+    var imagePickerCell: ImagePickerCell!
     var nameCell: ValidatedTextFieldCell!
     var speciesCell: SelectAnimalCell!
     var breedCell: ValidatedTextFieldCell!
@@ -41,19 +41,13 @@ class CreateVC: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        if #available(iOS 13.0, *) {
-            self.navigationController?.setNavigationBarHidden(true, animated: false)
-            self.navigationController?.setNavigationBarHidden(false, animated: false)
-        }
-    }
 }
 
+// MARK: UI Configuration
 extension CreateVC {
     func createCells() -> [[UITableViewCell]] {
-        imageCell = tableView.dequeueReusableCell(withIdentifier: SelectImageCell.identifier) as? SelectImageCell
+        imagePickerCell = tableView.dequeueReusableCell(withIdentifier: ImagePickerCell.identifier) as? ImagePickerCell
+        imagePickerCell.configure(delegate: self)
         
         nameCell = tableView.dequeueReusableCell(withIdentifier: ValidatedTextFieldCell.identifier) as? ValidatedTextFieldCell
         nameCell.configure(placeholder: "Name", type: .text)
@@ -69,7 +63,7 @@ extension CreateVC {
             self?.tableView.endUpdates()
         }
             
-        return [[imageCell], [nameCell], [speciesCell, breedCell], [descriptionCell]]
+        return [[imagePickerCell], [nameCell], [speciesCell, breedCell], [descriptionCell]]
     }
     
     @objc
@@ -83,12 +77,12 @@ extension CreateVC {
     
     @objc
     func keyboardWillHide(notification: NSNotification) {
-        if tableView.frame.origin.y != 0 {
             tableView.frame.origin.y = 0
-        }
     }
 }
 
+
+// MARK: TableView Logic
 extension CreateVC: UITableViewDelegate, UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
         4
@@ -108,5 +102,12 @@ extension CreateVC: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return UITableView.automaticDimension
+    }
+}
+
+// MARK: Image Picker Logic
+extension CreateVC: ImagePickerCellDelegate {
+    func presentImagePicker(_ imagePicker: UIImagePickerController) {
+        present(imagePicker, animated: true)
     }
 }

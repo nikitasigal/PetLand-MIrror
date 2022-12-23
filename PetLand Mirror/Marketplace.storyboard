@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="9Dq-oy-S0i">
-    <device id="retina5_9" orientation="portrait" appearance="dark"/>
+    <device id="retina5_9" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="Image references" minToolsVersion="12.0"/>
@@ -362,38 +362,37 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="insetGrouped" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" estimatedSectionHeaderHeight="-1" sectionFooterHeight="18" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="SUQ-5y-bIh">
                                 <rect key="frame" x="0.0" y="47" width="375" height="708"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="SelectImageCell" rowHeight="301" id="izN-1b-btm" customClass="SelectImageCell" customModule="PetLand_Mirror" customModuleProvider="target">
-                                        <rect key="frame" x="20" y="55.333332061767578" width="335" height="301"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="SelectImageCell" rowHeight="232" id="izN-1b-btm" customClass="ImagePickerCell" customModule="PetLand_Mirror" customModuleProvider="target">
+                                        <rect key="frame" x="20" y="55.333332061767578" width="335" height="232"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="izN-1b-btm" id="UfF-cq-ccx">
-                                            <rect key="frame" x="0.0" y="0.0" width="335" height="301"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="335" height="232"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ey9-Aw-PKb" userLabel="Frame View">
-                                                    <rect key="frame" x="0.0" y="0.0" width="335" height="301"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="335" height="232"/>
                                                     <subviews>
-                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dog" translatesAutoresizingMaskIntoConstraints="NO" id="64B-Ps-X7R">
-                                                            <rect key="frame" x="40" y="15" width="255" height="191.33333333333334"/>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jQk-RE-Jhn">
+                                                            <rect key="frame" x="20" y="20" width="295" height="192"/>
+                                                            <color key="backgroundColor" systemColor="systemFillColor"/>
                                                             <constraints>
-                                                                <constraint firstAttribute="width" secondItem="64B-Ps-X7R" secondAttribute="height" multiplier="4:3" id="KaI-5f-bvD"/>
+                                                                <constraint firstAttribute="width" secondItem="jQk-RE-Jhn" secondAttribute="height" multiplier="4:3" id="r4W-6V-8dn"/>
                                                             </constraints>
-                                                        </imageView>
-                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8cd-qh-dIk">
-                                                            <rect key="frame" x="95.000000000000014" y="221.33333333333334" width="145.33333333333337" height="35.000000000000028"/>
-                                                            <constraints>
-                                                                <constraint firstAttribute="height" constant="35" id="gaa-2a-zml"/>
-                                                            </constraints>
-                                                            <state key="normal" title="Button"/>
-                                                            <buttonConfiguration key="configuration" style="gray" title="Select an image"/>
+                                                            <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                            <state key="normal" title="Select image...">
+                                                                <color key="titleColor" systemColor="secondaryLabelColor"/>
+                                                            </state>
+                                                            <connections>
+                                                                <action selector="onSelectImageButtonPress" destination="izN-1b-btm" eventType="touchUpInside" id="OKj-Rz-OBK"/>
+                                                            </connections>
                                                         </button>
                                                     </subviews>
                                                     <constraints>
-                                                        <constraint firstItem="8cd-qh-dIk" firstAttribute="top" secondItem="64B-Ps-X7R" secondAttribute="bottom" constant="15" id="3CK-zo-0ff"/>
-                                                        <constraint firstItem="8cd-qh-dIk" firstAttribute="centerX" secondItem="64B-Ps-X7R" secondAttribute="centerX" id="7f8-os-4P9"/>
-                                                        <constraint firstItem="64B-Ps-X7R" firstAttribute="top" secondItem="Ey9-Aw-PKb" secondAttribute="top" constant="15" id="9Le-eN-xwa"/>
-                                                        <constraint firstAttribute="trailing" secondItem="64B-Ps-X7R" secondAttribute="trailing" constant="40" id="IzD-6c-Ogq"/>
-                                                        <constraint firstAttribute="bottom" secondItem="8cd-qh-dIk" secondAttribute="bottom" priority="999" constant="15" id="TxJ-rk-tbv"/>
-                                                        <constraint firstItem="64B-Ps-X7R" firstAttribute="leading" secondItem="Ey9-Aw-PKb" secondAttribute="leading" constant="40" id="aII-N9-mxR"/>
+                                                        <constraint firstItem="jQk-RE-Jhn" firstAttribute="leading" secondItem="Ey9-Aw-PKb" secondAttribute="leading" constant="20" symbolic="YES" id="VJ8-aq-vmm"/>
+                                                        <constraint firstAttribute="bottom" secondItem="jQk-RE-Jhn" secondAttribute="bottom" constant="20" symbolic="YES" id="pbi-YE-UlL"/>
+                                                        <constraint firstItem="jQk-RE-Jhn" firstAttribute="top" secondItem="Ey9-Aw-PKb" secondAttribute="top" constant="20" symbolic="YES" id="to5-L0-KsJ"/>
+                                                        <constraint firstAttribute="trailing" secondItem="jQk-RE-Jhn" secondAttribute="trailing" constant="20" symbolic="YES" id="v0y-le-4cN"/>
                                                     </constraints>
                                                 </view>
                                             </subviews>
@@ -404,9 +403,12 @@
                                                 <constraint firstAttribute="trailing" secondItem="Ey9-Aw-PKb" secondAttribute="trailing" id="n6j-BT-o1B"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="selectButton" destination="jQk-RE-Jhn" id="3zj-iH-fiz"/>
+                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="SelectAnimalCell" rowHeight="55" id="E2i-6K-icP" customClass="SelectAnimalCell" customModule="PetLand_Mirror" customModuleProvider="target">
-                                        <rect key="frame" x="20" y="356.33333206176758" width="335" height="55"/>
+                                        <rect key="frame" x="20" y="287.33333206176758" width="335" height="55"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="E2i-6K-icP" id="fXB-IL-Z1H">
                                             <rect key="frame" x="0.0" y="0.0" width="335" height="55"/>
@@ -448,7 +450,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="DescriptionCell" rowHeight="75" id="cnr-H1-4yj" customClass="DescriptionCell" customModule="PetLand_Mirror" customModuleProvider="target">
-                                        <rect key="frame" x="20" y="411.33333206176758" width="335" height="75"/>
+                                        <rect key="frame" x="20" y="342.33333206176758" width="335" height="75"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="cnr-H1-4yj" id="9RE-ms-qmV">
                                             <rect key="frame" x="0.0" y="0.0" width="335" height="75"/>
@@ -502,7 +504,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8DG-dI-DWW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1564" y="-557"/>
+            <point key="canvasLocation" x="1564" y="-557.14285714285711"/>
         </scene>
         <!--Detail-->
         <scene sceneID="Pb4-Z3-FDF">
@@ -652,6 +654,9 @@
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemFillColor">
+            <color red="0.47058823529411764" green="0.47058823529411764" blue="0.50196078431372548" alpha="0.20000000000000001" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemRedColor">
             <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
