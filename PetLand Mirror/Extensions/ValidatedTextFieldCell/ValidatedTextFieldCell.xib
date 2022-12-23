@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ValidatedTextFieldCell" rowHeight="70" id="7dn-aW-jqz" customClass="ValidatedTextFieldCell" customModule="PetLand_Mirror" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="70"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="7dn-aW-jqz" id="DGC-Ct-4SD">
+                <rect key="frame" x="0.0" y="0.0" width="375" height="70"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="TextField Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qVy-fi-opW">
+                        <rect key="frame" x="20" y="20" width="335" height="40"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="40" id="Ijb-8n-jHL"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                        <textInputTraits key="textInputTraits"/>
+                        <connections>
+                            <action selector="onEditingChanged" destination="7dn-aW-jqz" eventType="editingChanged" id="9pM-e6-96s"/>
+                        </connections>
+                    </textField>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nTm-K2-6bx">
+                        <rect key="frame" x="298" y="23" width="57" height="34"/>
+                        <state key="normal" title="Button"/>
+                        <buttonConfiguration key="configuration" style="plain" image="eye.slash" catalog="system">
+                            <color key="baseForegroundColor" systemColor="systemFillColor"/>
+                        </buttonConfiguration>
+                        <connections>
+                            <action selector="onVisibilityTogglePress" destination="7dn-aW-jqz" eventType="touchUpInside" id="ExA-6c-P3F"/>
+                        </connections>
+                    </button>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Error label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ozH-zQ-QgC">
+                        <rect key="frame" x="300" y="6" width="55" height="14"/>
+                        <fontDescription key="fontDescription" style="UICTFontTextStyleCaption2"/>
+                        <color key="textColor" systemColor="systemRedColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="qVy-fi-opW" firstAttribute="top" secondItem="DGC-Ct-4SD" secondAttribute="top" constant="20" symbolic="YES" id="01S-Ks-Tb4"/>
+                    <constraint firstItem="nTm-K2-6bx" firstAttribute="trailing" secondItem="qVy-fi-opW" secondAttribute="trailing" id="Dd7-9s-s9c"/>
+                    <constraint firstAttribute="trailing" secondItem="qVy-fi-opW" secondAttribute="trailing" constant="20" symbolic="YES" id="PQ5-e5-Jzl"/>
+                    <constraint firstItem="qVy-fi-opW" firstAttribute="centerY" secondItem="DGC-Ct-4SD" secondAttribute="centerY" id="QmZ-A7-2PN"/>
+                    <constraint firstItem="qVy-fi-opW" firstAttribute="centerX" secondItem="DGC-Ct-4SD" secondAttribute="centerX" id="Rtq-fL-H06"/>
+                    <constraint firstItem="ozH-zQ-QgC" firstAttribute="bottom" secondItem="qVy-fi-opW" secondAttribute="top" id="XKk-jw-U7v"/>
+                    <constraint firstItem="nTm-K2-6bx" firstAttribute="centerY" secondItem="qVy-fi-opW" secondAttribute="centerY" id="iTh-RL-oTK"/>
+                    <constraint firstItem="qVy-fi-opW" firstAttribute="leading" secondItem="DGC-Ct-4SD" secondAttribute="leading" constant="20" symbolic="YES" id="sT0-hi-FDI"/>
+                    <constraint firstItem="ozH-zQ-QgC" firstAttribute="trailing" secondItem="qVy-fi-opW" secondAttribute="trailing" id="tkO-bV-vr1"/>
+                    <constraint firstAttribute="bottom" secondItem="qVy-fi-opW" secondAttribute="bottom" constant="20" symbolic="YES" id="xzF-mS-tdj"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="errorLabel" destination="ozH-zQ-QgC" id="9gP-nI-Hv6"/>
+                <outlet property="textField" destination="qVy-fi-opW" id="8H4-r0-6Yk"/>
+                <outlet property="visibilityToggle" destination="nTm-K2-6bx" id="dTW-od-U9z"/>
+            </connections>
+            <point key="canvasLocation" x="250" y="12"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="eye.slash" catalog="system" width="128" height="84"/>
+        <systemColor name="systemFillColor">
+            <color red="0.47058823529411764" green="0.47058823529411764" blue="0.50196078431372548" alpha="0.20000000000000001" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemRedColor">
+            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>

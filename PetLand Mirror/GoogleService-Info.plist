@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>795382565395-qve88elks0ao7pninhoshkp0ga07k3i3.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.795382565395-qve88elks0ao7pninhoshkp0ga07k3i3</string>
+	<key>API_KEY</key>
+	<string>AIzaSyDnmaZxboA8r_Qzu2CJwF2kEVISGa4vUe0</string>
+	<key>GCM_SENDER_ID</key>
+	<string>795382565395</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.drunkvermicelli.PetLand-Mirror</string>
+	<key>PROJECT_ID</key>
+	<string>petland-mirror</string>
+	<key>STORAGE_BUCKET</key>
+	<string>petland-mirror.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:795382565395:ios:c879a8f3eb883acfa90de6</string>
+</dict>
+</plist>
