@@ -28,6 +28,8 @@ final class DetailVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        title = dataModel.name
+        
         frameView.layer.cornerRadius = 10
         petImage.layer.cornerRadius = 10
 

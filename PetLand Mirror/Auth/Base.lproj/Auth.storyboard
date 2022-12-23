@@ -123,71 +123,43 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SB5-Pl-Iua">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GuR-cZ-pgN" userLabel="Content View">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                        <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b3a-sU-KOQ">
-                                                <rect key="frame" x="149.5" y="632.5" width="76" height="34.5"/>
-                                                <state key="normal" title="Button"/>
-                                                <buttonConfiguration key="configuration" style="plain" title="Sign In">
-                                                    <fontDescription key="titleFontDescription" style="UICTFontTextStyleBody"/>
-                                                </buttonConfiguration>
-                                                <connections>
-                                                    <segue destination="BYZ-38-t0r" kind="showDetail" id="T54-NS-4Aa"/>
-                                                </connections>
-                                            </button>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome to PetLand!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fv2-Of-FH3">
-                                                <rect key="frame" x="0.0" y="0.0" width="375" height="100"/>
-                                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="insetGrouped" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" estimatedSectionHeaderHeight="-1" sectionFooterHeight="18" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="tLP-Nc-Lr6">
-                                                <rect key="frame" x="0.0" y="100" width="375" height="532.5"/>
-                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                            </tableView>
-                                        </subviews>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                        <constraints>
-                                            <constraint firstItem="tLP-Nc-Lr6" firstAttribute="top" secondItem="fv2-Of-FH3" secondAttribute="bottom" id="40q-mJ-Wwl"/>
-                                            <constraint firstAttribute="bottom" secondItem="b3a-sU-KOQ" secondAttribute="bottom" id="Oc2-oy-SDi"/>
-                                            <constraint firstItem="b3a-sU-KOQ" firstAttribute="top" secondItem="tLP-Nc-Lr6" secondAttribute="bottom" id="TFz-bt-XVf"/>
-                                            <constraint firstAttribute="trailing" secondItem="fv2-Of-FH3" secondAttribute="trailing" id="Ufp-Lt-2tc"/>
-                                            <constraint firstItem="fv2-Of-FH3" firstAttribute="height" secondItem="GuR-cZ-pgN" secondAttribute="height" multiplier="0.15" id="azI-MW-vfw"/>
-                                            <constraint firstItem="fv2-Of-FH3" firstAttribute="leading" secondItem="GuR-cZ-pgN" secondAttribute="leading" id="d6B-dn-1wj"/>
-                                            <constraint firstAttribute="trailing" secondItem="tLP-Nc-Lr6" secondAttribute="trailing" id="eG5-KZ-I32"/>
-                                            <constraint firstItem="b3a-sU-KOQ" firstAttribute="centerX" secondItem="GuR-cZ-pgN" secondAttribute="centerX" id="uCd-mE-DA9"/>
-                                            <constraint firstItem="fv2-Of-FH3" firstAttribute="top" secondItem="GuR-cZ-pgN" secondAttribute="top" id="xeD-MK-RVP"/>
-                                            <constraint firstItem="tLP-Nc-Lr6" firstAttribute="leading" secondItem="GuR-cZ-pgN" secondAttribute="leading" id="z2C-Rn-GgE"/>
-                                        </constraints>
-                                    </view>
-                                </subviews>
-                                <constraints>
-                                    <constraint firstItem="GuR-cZ-pgN" firstAttribute="width" secondItem="SB5-Pl-Iua" secondAttribute="width" id="ASx-Fx-GU4"/>
-                                    <constraint firstItem="GuR-cZ-pgN" firstAttribute="leading" secondItem="SB5-Pl-Iua" secondAttribute="leading" id="WfT-Yz-l97"/>
-                                    <constraint firstAttribute="trailing" secondItem="GuR-cZ-pgN" secondAttribute="trailing" id="Ydl-aq-WEy"/>
-                                    <constraint firstItem="GuR-cZ-pgN" firstAttribute="top" secondItem="SB5-Pl-Iua" secondAttribute="top" id="jjj-XH-pQm"/>
-                                    <constraint firstItem="GuR-cZ-pgN" firstAttribute="height" secondItem="SB5-Pl-Iua" secondAttribute="height" id="pxZ-e1-eAv"/>
-                                    <constraint firstAttribute="bottom" secondItem="GuR-cZ-pgN" secondAttribute="bottom" id="qLc-FJ-lbY"/>
-                                </constraints>
-                            </scrollView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b3a-sU-KOQ">
+                                <rect key="frame" x="149.5" y="632.5" width="76" height="34.5"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Sign In">
+                                    <fontDescription key="titleFontDescription" style="UICTFontTextStyleBody"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <segue destination="BYZ-38-t0r" kind="showDetail" id="T54-NS-4Aa"/>
+                                </connections>
+                            </button>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" dataMode="prototypes" style="insetGrouped" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" estimatedSectionHeaderHeight="-1" sectionFooterHeight="18" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="tLP-Nc-Lr6">
+                                <rect key="frame" x="20" y="100" width="335" height="532.5"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome to PetLand!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fv2-Of-FH3">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="100"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="N2b-Cq-boO"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="SB5-Pl-Iua" firstAttribute="trailing" secondItem="N2b-Cq-boO" secondAttribute="trailing" id="6ed-od-GEg"/>
-                            <constraint firstItem="SB5-Pl-Iua" firstAttribute="leading" secondItem="N2b-Cq-boO" secondAttribute="leading" id="Bys-LC-cah"/>
-                            <constraint firstItem="SB5-Pl-Iua" firstAttribute="height" secondItem="N2b-Cq-boO" secondAttribute="height" id="LKq-dD-ocn"/>
-                            <constraint firstItem="SB5-Pl-Iua" firstAttribute="top" secondItem="N2b-Cq-boO" secondAttribute="top" id="eXX-SA-znp"/>
-                            <constraint firstItem="SB5-Pl-Iua" firstAttribute="bottom" secondItem="N2b-Cq-boO" secondAttribute="bottom" id="h8N-4q-49T"/>
-                            <constraint firstItem="SB5-Pl-Iua" firstAttribute="width" secondItem="N2b-Cq-boO" secondAttribute="width" id="oGO-GF-1CM"/>
+                            <constraint firstItem="fv2-Of-FH3" firstAttribute="height" secondItem="Dns-NY-VJw" secondAttribute="height" multiplier="0.15" id="Byu-a1-MzS"/>
+                            <constraint firstItem="b3a-sU-KOQ" firstAttribute="centerX" secondItem="N2b-Cq-boO" secondAttribute="centerX" id="ESB-Du-Csz"/>
+                            <constraint firstItem="fv2-Of-FH3" firstAttribute="leading" secondItem="N2b-Cq-boO" secondAttribute="leading" id="Ek0-D6-rLn"/>
+                            <constraint firstItem="N2b-Cq-boO" firstAttribute="trailing" secondItem="tLP-Nc-Lr6" secondAttribute="trailing" constant="20" id="N5i-en-67i"/>
+                            <constraint firstItem="N2b-Cq-boO" firstAttribute="trailing" secondItem="fv2-Of-FH3" secondAttribute="trailing" id="Oz5-4S-CCb"/>
+                            <constraint firstItem="tLP-Nc-Lr6" firstAttribute="top" secondItem="fv2-Of-FH3" secondAttribute="bottom" id="PY2-9n-oFy"/>
+                            <constraint firstItem="b3a-sU-KOQ" firstAttribute="top" secondItem="tLP-Nc-Lr6" secondAttribute="bottom" id="YeK-uD-2gn"/>
+                            <constraint firstItem="fv2-Of-FH3" firstAttribute="top" secondItem="N2b-Cq-boO" secondAttribute="top" id="gtp-HC-ocb"/>
+                            <constraint firstItem="N2b-Cq-boO" firstAttribute="bottom" secondItem="b3a-sU-KOQ" secondAttribute="bottom" id="rLB-HY-VvN"/>
+                            <constraint firstItem="tLP-Nc-Lr6" firstAttribute="leading" secondItem="N2b-Cq-boO" secondAttribute="leading" constant="20" id="uQn-Zf-5XQ"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="scrollView" destination="SB5-Pl-Iua" id="aab-oU-l5s"/>
                         <outlet property="tableView" destination="tLP-Nc-Lr6" id="1ek-4J-NTG"/>
                     </connections>
                 </viewController>

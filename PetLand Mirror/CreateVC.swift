@@ -68,8 +68,12 @@ class CreateVC: UIViewController {
 
 extension CreateVC {
     func configureKeyboard() {
+        // dismiss keyboard on 
         let tap = UITapGestureRecognizer(target: view, action: #selector(UIView.endEditing))
         view.addGestureRecognizer(tap)
+        
+        // dismiss keyboard on drag
+        tableView.keyboardDismissMode = .onDrag
         
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
@@ -94,8 +98,6 @@ extension CreateVC {
 
 extension CreateVC {
     func configureTableView() {
-        tableView.keyboardDismissMode = .onDrag
-        
         tableView.delegate = self
         tableView.dataSource = self
         
@@ -132,7 +134,7 @@ extension CreateVC {
         }
         
         submitCell = tableView.dequeueReusableCell(withIdentifier: SubmitButtonCell.identifier) as? SubmitButtonCell
-        submitCell.configure(title: "Create", self)
+        submitCell.configure(title: "Create Pet", self)
             
         return [[imagePickerCell],
                 [nameCell, priceCell],

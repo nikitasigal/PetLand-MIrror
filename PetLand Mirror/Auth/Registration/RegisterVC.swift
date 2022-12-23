@@ -12,7 +12,6 @@ final class RegisterVC: UIViewController {
 
     // MARK: Outlets
 
-    @IBOutlet var scrollView: UIScrollView!
     @IBOutlet var tableView: UITableView!
 
     // MARK: Internal vars
@@ -50,28 +49,38 @@ final class RegisterVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        tableView.dataSource = self
-        tableView.delegate = self
-        tableView.rowHeight = UITableView.automaticDimension
-
-        tableView.register(UINib(nibName: ValidatedTextFieldCell.identifier, bundle: nil), forCellReuseIdentifier: ValidatedTextFieldCell.identifier)
-        tableView.register(UINib(nibName: SubmitButtonCell.identifier, bundle: nil), forCellReuseIdentifier: SubmitButtonCell.identifier)
-
-        // dismiss keyboard on tap
-        let tap = UITapGestureRecognizer(target: view, action: #selector(UIView.endEditing))
-        view.addGestureRecognizer(tap)
-
-        // dismiss keyboard on drag
-        scrollView.keyboardDismissMode = .onDrag
-
-        cells = createCells()
+        configureTableView()
+        configureKeyboard()
     }
 }
 
-// MARK: UI Configuration
+// MARK: Keyboard Configuration
+
+extension RegisterVC {    
+    func configureKeyboard() {
+        // dismiss keyboard on tap
+        let tap = UITapGestureRecognizer(target: view, action: #selector(UIView.endEditing))
+        view.addGestureRecognizer(tap)
+        
+        // dismiss keyboard on drag
+        tableView.keyboardDismissMode = .onDrag
+    }
+}
+
+// MARK: TableView Configuration
 
 extension RegisterVC {
+    func configureTableView() {
+        tableView.dataSource = self
+        tableView.delegate = self
+        tableView.rowHeight = UITableView.automaticDimension
+        
+        tableView.register(UINib(nibName: ValidatedTextFieldCell.identifier, bundle: nil), forCellReuseIdentifier: ValidatedTextFieldCell.identifier)
+        tableView.register(UINib(nibName: SubmitButtonCell.identifier, bundle: nil), forCellReuseIdentifier: SubmitButtonCell.identifier)
+        
+        cells = createCells()
+    }
+    
     private func createCells() -> [[ValidatedCell]] {
         let setup: [[(String, ValidatedTextFieldCell.CellType)]] = [
             [("First name", .firstName),

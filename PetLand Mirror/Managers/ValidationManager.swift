@@ -30,13 +30,13 @@ class ValidationManager {
     }
 
     static func isValidPassword(_ input: String) -> String? {
-        if input.count < 8 {
-            return "Must be at least 8 characters"
-        }
-
         let characherSetRegex = /[A-Z0-9a-z_\-!@#$%^&*]+/
         if !characherSetRegex.match(in: input) {
             return "Unsupported characters"
+        }
+
+        if input.count < 8 {
+            return "Must be at least 8 characters"
         }
 
         let capitalLetterRegex = /.*[A-Z].*/
@@ -57,11 +57,11 @@ class ValidationManager {
         cache.setObject(input as NSString, forKey: "NewPassword")
         return nil
     }
-    
+
     static func isValidDecimal(_ input: String) -> String? {
         return Double(input) != nil ? nil : "Wrong decimal format"
     }
-    
+
     static func isValidInteger(_ input: String) -> String? {
         return Int(input) != nil ? nil : "Wrong integer format"
     }

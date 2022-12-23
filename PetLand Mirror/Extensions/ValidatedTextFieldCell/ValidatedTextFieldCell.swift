@@ -29,10 +29,11 @@ final class ValidatedTextFieldCell: UITableViewCell {
         errorLabel.isHidden = true
         textField.delegate = self
 
-        bottomLine.frame = CGRect(x: 0.0, y: textField.frame.height - 1, width: textField.frame.width, height: 1.0)
+        bottomLine.frame = CGRect(x: 0.0, y: textField.frame.height-1, width: textField.frame.width, height: 1.0)
         bottomLine.backgroundColor = UIColor.red.cgColor
         bottomLine.isHidden = true
         textField.layer.addSublayer(bottomLine)
+        textField.layer.masksToBounds = true
     }
 
     @IBAction func onEditingChanged() {

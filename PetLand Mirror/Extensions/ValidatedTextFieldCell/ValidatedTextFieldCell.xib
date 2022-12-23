@@ -42,7 +42,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Error label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ozH-zQ-QgC">
-                                <rect key="frame" x="20" y="1" width="55" height="14"/>
+                                <rect key="frame" x="20" y="4" width="55" height="14"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleCaption2"/>
                                 <color key="textColor" systemColor="systemRedColor"/>
                                 <nil key="highlightedColor"/>
@@ -50,7 +50,7 @@
                         </subviews>
                         <constraints>
                             <constraint firstItem="qVy-fi-opW" firstAttribute="centerX" secondItem="N1m-BY-wQD" secondAttribute="centerX" id="AAt-TL-thl"/>
-                            <constraint firstItem="ozH-zQ-QgC" firstAttribute="bottom" secondItem="qVy-fi-opW" secondAttribute="top" id="JE1-rH-RbY"/>
+                            <constraint firstItem="ozH-zQ-QgC" firstAttribute="bottom" secondItem="qVy-fi-opW" secondAttribute="top" constant="3" id="JE1-rH-RbY"/>
                             <constraint firstItem="nTm-K2-6bx" firstAttribute="centerY" secondItem="qVy-fi-opW" secondAttribute="centerY" id="Kcs-3Y-H64"/>
                             <constraint firstItem="nTm-K2-6bx" firstAttribute="trailing" secondItem="qVy-fi-opW" secondAttribute="trailing" id="Mru-3D-Vil"/>
                             <constraint firstAttribute="bottom" secondItem="qVy-fi-opW" secondAttribute="bottom" constant="15" id="Rn1-Eo-IsD"/>
