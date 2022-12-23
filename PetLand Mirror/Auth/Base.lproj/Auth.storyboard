@@ -115,10 +115,10 @@
             </objects>
             <point key="canvasLocation" x="1079.2" y="3.6945812807881775"/>
         </scene>
-        <!--Registration-->
+        <!--Register-->
         <scene sceneID="cI5-xj-S3g">
             <objects>
-                <viewController storyboardIdentifier="Auth.Registration" modalPresentationStyle="fullScreen" id="3hq-1G-Y6J" userLabel="Registration" customClass="RegistrationVC" customModule="PetLand_Mirror" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Auth.Register" modalPresentationStyle="fullScreen" id="3hq-1G-Y6J" userLabel="Register" customClass="RegisterVC" customModule="PetLand_Mirror" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Dns-NY-VJw">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>

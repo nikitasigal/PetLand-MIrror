@@ -7,11 +7,11 @@
 
 import UIKit
 
-protocol MarketplaceDisplayLogic: AnyObject {
-    func displayError(_ error: Error)
-    func displayPets(_ data: [Pet])
-    func displayImage(_ image: UIImage, withID imageID: String)
-    func displayCurrentUser(_ data: User)
+protocol MarketplaceBusinessLogic {
+    func fetchPets()
+    func fetchImage(withID: String)
+    func fetchCurrentUser()
+    func updateFavourites(to newValue: Set<String>)
 }
 
 protocol MarketplacePresentationLogic {
@@ -21,11 +21,11 @@ protocol MarketplacePresentationLogic {
     func presentCurrentUser(_ data: User)
 }
 
-protocol MarketplaceBusinessLogic {
-    func fetchPets()
-    func fetchImage(withID: String)
-    func fetchCurrentUser()
-    func updateFavourites(to newValue: Set<String>)
+protocol MarketplaceDisplayLogic: AnyObject {
+    func displayError(_ error: Error)
+    func displayPets(_ data: [Pet])
+    func displayImage(_ image: UIImage, withID imageID: String)
+    func displayCurrentUser(_ data: User)
 }
 
 protocol MarketplaceRoutingLogic: AnyObject {

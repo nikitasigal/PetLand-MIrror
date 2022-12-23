@@ -32,14 +32,15 @@ final class LoginVC: UIViewController {
 
     @IBAction func onLoginButtonPress() {
         authManager.login(email: emailTF.text!,
-                          password: passwordTF.text!) { [weak self] success in
-            guard success else {
-                self?.statusLabel.text = "Something went wrong, try again"
+                          password: passwordTF.text!) { error in
+            if let error {
+                self.statusLabel.text = error.localizedDescription
                 return
             }
+            
             let vc = UIStoryboard(name: "Navigation", bundle: nil)
                 .instantiateViewController(withIdentifier: "TabBar")
-            self?.present(vc, animated: true)
+            self.present(vc, animated: true)
         }
     }
 

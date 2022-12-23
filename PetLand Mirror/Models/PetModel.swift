@@ -8,7 +8,7 @@
 import FirebaseFirestore
 import FirebaseFirestoreSwift
 
-struct Pet: Codable {
+struct Pet: FirestoreDocument {
     @DocumentID var uid = UUID().uuidString
     var imageID: String = UUID().uuidString + ".jpg"
     let name: String

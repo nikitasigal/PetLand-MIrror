@@ -8,12 +8,12 @@
 import FirebaseFirestore
 import FirebaseFirestoreSwift
 
-struct User: Codable {
+struct User: FirestoreDocument {
     @DocumentID var uid = UUID().uuidString
+    var imageID: String = "noavatar"
     let firstName: String
     let lastName: String
     let email: String
-    let imageID: String
     
     let favourites: [String]
 }
