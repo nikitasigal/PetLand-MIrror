@@ -16,6 +16,7 @@ final class ValidatedTextFieldCell: UITableViewCell {
     }
 
     private var type: CellType = .newPassword
+    private var bottomLine: CALayer = CALayer()
 
     @IBOutlet var textField: UITextField!
     @IBOutlet var errorLabel: UILabel!
@@ -26,20 +27,23 @@ final class ValidatedTextFieldCell: UITableViewCell {
 
         visibilityToggle.isHidden = true
         errorLabel.isHidden = true
-        textField.layer.cornerRadius = 5
-        textField.layer.borderColor = UIColor.red.cgColor
         textField.delegate = self
+        
+        bottomLine.frame = CGRect(x: 0.0, y: textField.frame.height - 1, width: textField.frame.width, height: 1.0)
+        bottomLine.backgroundColor = UIColor.red.cgColor
+        bottomLine.isHidden = true
+        textField.layer.addSublayer(bottomLine)
     }
 
     @IBAction func onEditingChanged() {
         if textField.hasText,
            let error = validator(textField.text!)
         {
-            textField.layer.borderWidth = 1
             errorLabel.text = error
+            bottomLine.isHidden = false
             errorLabel.isHidden = false
         } else {
-            textField.layer.borderWidth = 0
+            bottomLine.isHidden = true
             errorLabel.isHidden = true
         }
     }
