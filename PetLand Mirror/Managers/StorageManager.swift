@@ -10,10 +10,12 @@ import UIKit
 
 enum StorageError: Error {
     case corruptedData
+    case uploadError
 }
 
 protocol StorageManagerProtocol {
-    func getImage(withID: String, _ completion: @escaping (Result<UIImage, Error>) -> Void)
+    func getImage(withID imageID: String, _ completion: @escaping (Result<UIImage, Error>) -> Void)
+    func uploadImage(_ image: UIImage, withID imageID: String, _ completion: @escaping (Error?) -> Void)
 }
 
 class StorageManager {
@@ -36,6 +38,18 @@ extension StorageManager: StorageManagerProtocol {
             case let .failure(error):
                 DispatchQueue.main.async { completion(.failure(error)) }
             }
+        }
+    }
+
+    func uploadImage(_ image: UIImage, withID imageID: String, _ completion: @escaping (Error?) -> Void) {
+        guard let imageData = image.pngData() else { return }
+        storageRef.child("images").child(imageID).putData(imageData, metadata: nil) { metadata, error in
+            guard metadata != nil else {
+                DispatchQueue.main.async { completion(StorageError.uploadError) }
+                return
+            }
+
+            DispatchQueue.main.async { completion(error) }
         }
     }
 }

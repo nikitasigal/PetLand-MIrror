@@ -12,11 +12,11 @@ final class ValidatedTextFieldCell: UITableViewCell {
     static let identifier = "ValidatedTextFieldCell"
 
     enum CellType {
-        case text, firstName, lastName, email, username, newPassword, confirmPassword
+        case text, integer, decimal, firstName, lastName, email, username, newPassword, confirmPassword
     }
 
     private var type: CellType = .newPassword
-    private var bottomLine: CALayer = CALayer()
+    private var bottomLine: CALayer = .init()
 
     @IBOutlet var textField: UITextField!
     @IBOutlet var errorLabel: UILabel!
@@ -28,7 +28,7 @@ final class ValidatedTextFieldCell: UITableViewCell {
         visibilityToggle.isHidden = true
         errorLabel.isHidden = true
         textField.delegate = self
-        
+
         bottomLine.frame = CGRect(x: 0.0, y: textField.frame.height - 1, width: textField.frame.width, height: 1.0)
         bottomLine.backgroundColor = UIColor.red.cgColor
         bottomLine.isHidden = true
@@ -82,14 +82,16 @@ extension ValidatedTextFieldCell {
             textField.keyboardType = .asciiCapable
             textField.isSecureTextEntry = true
             visibilityToggle.isHidden = false
-        case .text:
+        case .integer, .decimal:
+            textField.keyboardType = .decimalPad
+        default:
             break
         }
     }
 
     private var validator: (String) -> String? {
         switch type {
-        case .firstName, .lastName, .text:
+        case .firstName, .lastName:
             return ValidationManager.isValidName
         case .username:
             return ValidationManager.isValidUsername
@@ -99,6 +101,12 @@ extension ValidatedTextFieldCell {
             return ValidationManager.isValidPassword
         case .confirmPassword:
             return ValidationManager.isValidConfirmPassword
+        case .integer:
+            return ValidationManager.isValidInteger
+        case .decimal:
+            return ValidationManager.isValidDecimal
+        default:
+            return { (_: String) -> String? in nil }
         }
     }
 
@@ -114,7 +122,6 @@ extension ValidatedTextFieldCell {
 extension ValidatedTextFieldCell: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
-
         return true
     }
 }

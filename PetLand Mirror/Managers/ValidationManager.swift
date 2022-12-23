@@ -57,6 +57,14 @@ class ValidationManager {
         cache.setObject(input as NSString, forKey: "NewPassword")
         return nil
     }
+    
+    static func isValidDecimal(_ input: String) -> String? {
+        return Double(input) != nil ? nil : "Wrong decimal format"
+    }
+    
+    static func isValidInteger(_ input: String) -> String? {
+        return Int(input) != nil ? nil : "Wrong integer format"
+    }
 
     static func isValidConfirmPassword(_ input: String) -> String? {
         if let cachedPassword = cache.object(forKey: "NewPassword") as? String,

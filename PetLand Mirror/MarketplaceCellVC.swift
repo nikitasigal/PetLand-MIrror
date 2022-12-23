@@ -5,8 +5,12 @@
 //  Created by Никита Сигал on 04.12.2022.
 //
 
-import Foundation
 import UIKit
+
+
+protocol MarketplaceCellDelegate: AnyObject {
+    func setFavourite(to isFavourite: Bool, for petID: String)
+}
 
 final class MarketplaceCellVC: UITableViewCell {
     // Outlets

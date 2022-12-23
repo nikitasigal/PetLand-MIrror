@@ -33,7 +33,3 @@ protocol MarketplaceRoutingLogic: AnyObject {
     func routeToCreatePet()
     func routeToDetail()
 }
-
-protocol MarketplaceCellDelegate: AnyObject {
-    func setFavourite(to isFavourite: Bool, for petID: String)
-}

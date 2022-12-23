@@ -14,11 +14,28 @@ class CreateVC: UIViewController {
     
     var imagePickerCell: ImagePickerCell!
     var nameCell: ValidatedTextFieldCell!
+    var priceCell: ValidatedTextFieldCell!
     var speciesCell: SelectAnimalCell!
     var breedCell: ValidatedTextFieldCell!
     var descriptionCell: DescriptionCell!
     
     var cells: [[UITableViewCell]] = []
+    
+    // MARK: Setuo
+    
+    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
+        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+        setup()
+    }
+    
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+        setup()
+    }
+    
+    private func setup() {
+         
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -52,6 +69,9 @@ extension CreateVC {
         nameCell = tableView.dequeueReusableCell(withIdentifier: ValidatedTextFieldCell.identifier) as? ValidatedTextFieldCell
         nameCell.configure(placeholder: "Name", type: .text)
         
+        priceCell = tableView.dequeueReusableCell(withIdentifier: ValidatedTextFieldCell.identifier) as? ValidatedTextFieldCell
+        priceCell.configure(placeholder: "Price", type: .integer)
+        
         speciesCell = tableView.dequeueReusableCell(withIdentifier: SelectAnimalCell.identifier) as? SelectAnimalCell
         
         breedCell = tableView.dequeueReusableCell(withIdentifier: ValidatedTextFieldCell.identifier) as? ValidatedTextFieldCell
@@ -63,7 +83,10 @@ extension CreateVC {
             self?.tableView.endUpdates()
         }
             
-        return [[imagePickerCell], [nameCell], [speciesCell, breedCell], [descriptionCell]]
+        return [[imagePickerCell],
+                [nameCell, priceCell],
+                [speciesCell, breedCell],
+                [descriptionCell]]
     }
     
     @objc
@@ -109,5 +132,26 @@ extension CreateVC: UITableViewDelegate, UITableViewDataSource {
 extension CreateVC: ImagePickerCellDelegate {
     func presentImagePicker(_ imagePicker: UIImagePickerController) {
         present(imagePicker, animated: true)
+    }
+}
+
+
+// MARK: Display Logic
+extension CreateVC: CreateDisplayLogic {
+    func displayError(_ error: Error) {
+        let ac = UIAlertController(title: "Something went wrong...",
+                                   message: error.localizedDescription,
+                                   preferredStyle: .alert)
+        ac.addAction(UIAlertAction(title: "OK", style: .default))
+        present(ac, animated: true)
+    }
+    
+    func displayCompletion() {
+        let ac = UIAlertController(title: "Succes!",
+                                   message: nil,
+                                   preferredStyle: .alert)
+        ac.addAction(UIAlertAction(title: "OK", style: .default))
+        present(ac, animated: true)
+        dismiss(animated: true)
     }
 }

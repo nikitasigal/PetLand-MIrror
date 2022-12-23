@@ -20,6 +20,7 @@ protocol FirestoreManagerProtocol {
     func getItems<T: Codable>(from collection: Collection, as _: T.Type, _ completion: @escaping (Result<[T], Error>) -> Void)
     func getItem<T: Codable>(from collection: Collection, withID documentID: String, as documentType: T.Type, _ completion: @escaping (Result<T, Error>) -> Void)
     func updateItem<T: Hashable>(in collection: Collection, withID documentID: String, for field: String, set newValue: T, _ completion: @escaping (Error?) -> Void)
+    func addItem<T: Codable>(_ item: T, to collection: Collection, _ completion: @escaping (Error?) -> Void)
 }
 
 final class FirestoreManager: FirestoreManagerProtocol {
@@ -56,5 +57,13 @@ final class FirestoreManager: FirestoreManagerProtocol {
         db.collection(collection.rawValue)
             .document(documentID)
             .updateData([field: newValue], completion: completion)
+    }
+
+    func addItem<T: Codable>(_ item: T, to collection: Collection, _ completion: @escaping (Error?) -> Void) {
+        do {
+            try _ = db.collection(collection.rawValue).addDocument(from: item, completion: completion)
+        } catch let error {
+            completion(error)
+        }
     }
 }
