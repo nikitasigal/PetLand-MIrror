@@ -35,3 +35,9 @@ extension SelectAnimalCell {
         return UIMenu(children: options)
     }
 }
+
+extension SelectAnimalCell: ValidatedCell {
+    var isValid: Bool {
+        true
+    }
+}

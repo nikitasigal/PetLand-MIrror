@@ -30,6 +30,6 @@ protocol MarketplaceBusinessLogic {
 
 protocol MarketplaceRoutingLogic: AnyObject {
     func routeToFilter()
-    func routeToCreatePet()
+    func routeToCreatePet(callback: (() -> Void)?)
     func routeToDetail()
 }

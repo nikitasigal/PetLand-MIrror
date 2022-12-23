@@ -110,10 +110,6 @@ extension ValidatedTextFieldCell {
         }
     }
 
-    var isValid: Bool {
-        textField.hasText && errorLabel.isHidden
-    }
-
     var text: String? {
         textField.text
     }
@@ -123,5 +119,11 @@ extension ValidatedTextFieldCell: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
+    }
+}
+
+extension ValidatedTextFieldCell: ValidatedCell {
+    var isValid: Bool {
+        textField.hasText && errorLabel.isHidden
     }
 }

@@ -12,7 +12,7 @@ protocol ImagePickerCellDelegate {
 }
 
 final class ImagePickerCell: UITableViewCell {
-    static let identifier = "SelectImageCell"
+    static let identifier = "ImagePickerCell"
     
     @IBOutlet weak var selectButton: UIButton!
     
@@ -37,6 +37,10 @@ extension ImagePickerCell {
     func configure(delegate: ImagePickerCellDelegate) {
         self.delegate = delegate
     }
+    
+    var image: UIImage? {
+        selectButton.currentImage
+    }
 }
 
 extension ImagePickerCell: UIImagePickerControllerDelegate & UINavigationControllerDelegate {
@@ -44,5 +48,11 @@ extension ImagePickerCell: UIImagePickerControllerDelegate & UINavigationControl
         let image = info[.originalImage] as! UIImage
         
         selectButton.setImage(image, for: .normal)
+    }
+}
+
+extension ImagePickerCell: ValidatedCell {
+    var isValid: Bool {
+        selectButton.currentImage != nil
     }
 }

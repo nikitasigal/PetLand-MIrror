@@ -13,24 +13,24 @@ final class MarketplaceRouter {
 
 extension MarketplaceRouter: MarketplaceRoutingLogic {
     func routeToFilter() {
-        guard let vc = viewController?.storyboard?.instantiateViewController(withIdentifier: "Filter"),
+        guard let vc = viewController?.storyboard?.instantiateViewController(withIdentifier: "Filter") as? FiltersVC,
               let sheet = vc.sheetPresentationController
         else { return }
         sheet.detents = [.medium(), .large()]
         sheet.prefersScrollingExpandsWhenScrolledToEdge = true
         sheet.prefersGrabberVisible = true
 
-        (vc as! FiltersVC).configure(for: viewController)
+        vc.configure(for: viewController)
         viewController?.navigationController?.present(vc, animated: true)
     }
 
-    func routeToCreatePet() {
-        guard let vc = viewController?.storyboard?.instantiateViewController(withIdentifier: CreateVC.identifier),
+    func routeToCreatePet(callback: (() -> Void)?) {
+        guard let vc = viewController?.storyboard?.instantiateViewController(withIdentifier: CreateVC.identifier) as? CreateVC,
               let sheet = vc.sheetPresentationController
         else { return }
-        
         sheet.prefersGrabberVisible = true
         
+        vc.configure(callback: callback)
         viewController?.navigationController?.present(vc, animated: true)
     }
 

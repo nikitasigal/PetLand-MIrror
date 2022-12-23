@@ -21,5 +21,3 @@ protocol CreatePresentationLogic {
 protocol CreateBusinessLogic {
     func addPet(_ data: Pet, withImage: UIImage)
 }
-
-

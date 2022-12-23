@@ -173,7 +173,9 @@ extension MarketplaceVC {
 
     @objc
     func plusButtonTapped() {
-        router?.routeToCreatePet()
+        router?.routeToCreatePet {
+            self.interactor?.fetchPets()
+        }
     }
 }
 

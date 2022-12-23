@@ -28,8 +28,20 @@ final class DescriptionCell: UITableViewCell {
     }
 }
 
+extension DescriptionCell {
+    var text: String? {
+        textView.text
+    }
+}
+
 extension DescriptionCell: UITextViewDelegate {
     func textViewDidChange(_ textView: UITextView) {
         reloader?()
+    }
+}
+
+extension DescriptionCell: ValidatedCell {
+    var isValid: Bool {
+        textView.hasText
     }
 }

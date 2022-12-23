@@ -26,7 +26,7 @@ class StorageManager {
 
 extension StorageManager: StorageManagerProtocol {
     func getImage(withID imageID: String, _ completion: @escaping (Result<UIImage, Error>) -> Void) {
-        storageRef.child("images").child(imageID).getData(maxSize: 5 * 1024 * 1024) { result in
+        storageRef.child("images").child(imageID).getData(maxSize: 10 * 1024 * 1024) { result in
             switch result {
             case let .success(data):
                 guard let image = UIImage(data: data)
@@ -42,7 +42,7 @@ extension StorageManager: StorageManagerProtocol {
     }
 
     func uploadImage(_ image: UIImage, withID imageID: String, _ completion: @escaping (Error?) -> Void) {
-        guard let imageData = image.pngData() else { return }
+        guard let imageData = image.jpegData(compressionQuality: 0.8) else { return }
         storageRef.child("images").child(imageID).putData(imageData, metadata: nil) { metadata, error in
             guard metadata != nil else {
                 DispatchQueue.main.async { completion(StorageError.uploadError) }

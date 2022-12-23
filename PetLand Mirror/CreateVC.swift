@@ -18,8 +18,12 @@ class CreateVC: UIViewController {
     var speciesCell: SelectAnimalCell!
     var breedCell: ValidatedTextFieldCell!
     var descriptionCell: DescriptionCell!
+    var submitCell: SubmitButtonCell!
     
-    var cells: [[UITableViewCell]] = []
+    var cells: [[ValidatedCell]] = []
+    
+    private var interactor: CreateBusinessLogic?
+    private var callback: (() -> Void)?
     
     // MARK: Setuo
     
@@ -34,7 +38,17 @@ class CreateVC: UIViewController {
     }
     
     private func setup() {
-         
+        let viewController = self
+        let presenter = CreatePresenter()
+        let interactor = CreateInteractor()
+        
+        viewController.interactor = interactor
+        interactor.presenter = presenter
+        presenter.viewController = viewController
+    }
+    
+    func configure(callback: (() -> Void)?) {
+        self.callback = callback
     }
     
     override func viewDidLoad() {
@@ -61,8 +75,9 @@ class CreateVC: UIViewController {
 }
 
 // MARK: UI Configuration
+
 extension CreateVC {
-    func createCells() -> [[UITableViewCell]] {
+    func createCells() -> [[ValidatedCell]] {
         imagePickerCell = tableView.dequeueReusableCell(withIdentifier: ImagePickerCell.identifier) as? ImagePickerCell
         imagePickerCell.configure(delegate: self)
         
@@ -82,11 +97,15 @@ extension CreateVC {
             self?.tableView.beginUpdates()
             self?.tableView.endUpdates()
         }
+        
+        submitCell = tableView.dequeueReusableCell(withIdentifier: SubmitButtonCell.identifier) as? SubmitButtonCell
+        submitCell.configure(self)
             
         return [[imagePickerCell],
                 [nameCell, priceCell],
                 [speciesCell, breedCell],
-                [descriptionCell]]
+                [descriptionCell],
+                [submitCell]]
     }
     
     @objc
@@ -100,19 +119,19 @@ extension CreateVC {
     
     @objc
     func keyboardWillHide(notification: NSNotification) {
-            tableView.frame.origin.y = 0
+        tableView.frame.origin.y = 0
     }
 }
 
-
 // MARK: TableView Logic
+
 extension CreateVC: UITableViewDelegate, UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
-        4
+        5
     }
 
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        ["Image", "General", "Species", "Description"][section]
+        ["Image", "General", "Species", "Description", nil][section]
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -129,14 +148,33 @@ extension CreateVC: UITableViewDelegate, UITableViewDataSource {
 }
 
 // MARK: Image Picker Logic
+
 extension CreateVC: ImagePickerCellDelegate {
     func presentImagePicker(_ imagePicker: UIImagePickerController) {
         present(imagePicker, animated: true)
     }
 }
 
+extension CreateVC: SubmitButtonCellDelegate {
+    func submitButtonPressed() {
+        guard cells.reduce(true, { acc, section in
+            acc && section.reduce(true) { subacc, cell in
+                subacc && cell.isValid
+            }
+        }) else { return }
+        
+        let model = Pet(name: nameCell.text!,
+                        species: speciesCell.animal,
+                        breed: breedCell.text!,
+                        description: descriptionCell.text!,
+                        price: Int(priceCell.text!)!)
+    
+        interactor?.addPet(model, withImage: imagePickerCell.image!)
+    }
+}
 
 // MARK: Display Logic
+
 extension CreateVC: CreateDisplayLogic {
     func displayError(_ error: Error) {
         let ac = UIAlertController(title: "Something went wrong...",
@@ -147,11 +185,7 @@ extension CreateVC: CreateDisplayLogic {
     }
     
     func displayCompletion() {
-        let ac = UIAlertController(title: "Succes!",
-                                   message: nil,
-                                   preferredStyle: .alert)
-        ac.addAction(UIAlertAction(title: "OK", style: .default))
-        present(ac, animated: true)
+        callback?()
         dismiss(animated: true)
     }
 }

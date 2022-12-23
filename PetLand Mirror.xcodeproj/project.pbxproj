@@ -24,6 +24,8 @@
 		FF6C0485294B271400F09AC7 /* ProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF6C0484294B271400F09AC7 /* ProfileVC.swift */; };
 		FF6C0487294B2BD900F09AC7 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF6C0486294B2BD900F09AC7 /* UserModel.swift */; };
 		FF6C0489294B5A6000F09AC7 /* FavouritesToggleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF6C0488294B5A6000F09AC7 /* FavouritesToggleCell.swift */; };
+		FF9AC91B29560744001FCB3A /* SubmitButtonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF9AC91A29560744001FCB3A /* SubmitButtonCell.swift */; };
+		FF9AC91D29560C78001FCB3A /* ValidatedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF9AC91C29560C78001FCB3A /* ValidatedCell.swift */; };
 		FFB35C32293BCA5600E11ED3 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FFB35C31293BCA5600E11ED3 /* GoogleService-Info.plist */; };
 		FFB35C35293BCB9A00E11ED3 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = FFB35C34293BCB9A00E11ED3 /* FirebaseAnalytics */; };
 		FFB35C37293BCB9A00E11ED3 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = FFB35C36293BCB9A00E11ED3 /* FirebaseAuth */; };
@@ -49,7 +51,6 @@
 		FFD0F00F293E22CC00A1368E /* CreatePetInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFD0F00E293E22CC00A1368E /* CreatePetInteractor.swift */; };
 		FFD0F011293E22D600A1368E /* CreatePetPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFD0F010293E22D600A1368E /* CreatePetPresenter.swift */; };
 		FFD0F013293E22E200A1368E /* CreatePetProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFD0F012293E22E200A1368E /* CreatePetProtocols.swift */; };
-		FFD0F015293E22FB00A1368E /* CreatePetRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFD0F014293E22FB00A1368E /* CreatePetRouter.swift */; };
 		FFD0F019293E233700A1368E /* FiltersVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFD0F018293E233700A1368E /* FiltersVC.swift */; };
 		FFD70600293E36BD00C36FDC /* CurrencyFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFD705FF293E36BD00C36FDC /* CurrencyFormatter.swift */; };
 		FFDF124829378F8E0046FEF0 /* ValidatedTextFieldCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFDF124729378F8E0046FEF0 /* ValidatedTextFieldCell.swift */; };
@@ -79,6 +80,8 @@
 		FF6C0484294B271400F09AC7 /* ProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVC.swift; sourceTree = "<group>"; };
 		FF6C0486294B2BD900F09AC7 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		FF6C0488294B5A6000F09AC7 /* FavouritesToggleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouritesToggleCell.swift; sourceTree = "<group>"; };
+		FF9AC91A29560744001FCB3A /* SubmitButtonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubmitButtonCell.swift; sourceTree = "<group>"; };
+		FF9AC91C29560C78001FCB3A /* ValidatedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidatedCell.swift; sourceTree = "<group>"; };
 		FFB35C31293BCA5600E11ED3 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		FFB35C40293BD10600E11ED3 /* Navigation.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Navigation.storyboard; sourceTree = "<group>"; };
 		FFB35C42293BDEDA00E11ED3 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
@@ -97,7 +100,6 @@
 		FFD0F00E293E22CC00A1368E /* CreatePetInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePetInteractor.swift; sourceTree = "<group>"; };
 		FFD0F010293E22D600A1368E /* CreatePetPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePetPresenter.swift; sourceTree = "<group>"; };
 		FFD0F012293E22E200A1368E /* CreatePetProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePetProtocols.swift; sourceTree = "<group>"; };
-		FFD0F014293E22FB00A1368E /* CreatePetRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePetRouter.swift; sourceTree = "<group>"; };
 		FFD0F018293E233700A1368E /* FiltersVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FiltersVC.swift; sourceTree = "<group>"; };
 		FFD705FF293E36BD00C36FDC /* CurrencyFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyFormatter.swift; sourceTree = "<group>"; };
 		FFDF124729378F8E0046FEF0 /* ValidatedTextFieldCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidatedTextFieldCell.swift; sourceTree = "<group>"; };
@@ -240,6 +242,7 @@
 				FF4B102A292B62D700AF15F8 /* RegexExtension.swift */,
 				FFD705FF293E36BD00C36FDC /* CurrencyFormatter.swift */,
 				FF02C1A029492272007E1D07 /* StringExtension.swift */,
+				FF9AC91C29560C78001FCB3A /* ValidatedCell.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -296,7 +299,6 @@
 				FFD0F00E293E22CC00A1368E /* CreatePetInteractor.swift */,
 				FFD0F010293E22D600A1368E /* CreatePetPresenter.swift */,
 				FFD0F012293E22E200A1368E /* CreatePetProtocols.swift */,
-				FFD0F014293E22FB00A1368E /* CreatePetRouter.swift */,
 			);
 			name = CreatePet;
 			sourceTree = "<group>";
@@ -316,6 +318,7 @@
 				FFE220AC29524FCE00D85230 /* ImagePickerCell.swift */,
 				FFE220AE29524FFD00D85230 /* DescriptionCell.swift */,
 				FFE220B02953041600D85230 /* SelectAnimalCell.swift */,
+				FF9AC91A29560744001FCB3A /* SubmitButtonCell.swift */,
 			);
 			name = Cells;
 			sourceTree = "<group>";
@@ -410,7 +413,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				FF6C0485294B271400F09AC7 /* ProfileVC.swift in Sources */,
-				FFD0F015293E22FB00A1368E /* CreatePetRouter.swift in Sources */,
 				FF02C1A129492272007E1D07 /* StringExtension.swift in Sources */,
 				FF03ADD52937B65400462140 /* ValidationManager.swift in Sources */,
 				FF2751B6292256CF00686D9D /* AppDelegate.swift in Sources */,
@@ -430,9 +432,11 @@
 				FFD0F00D293E22AC00A1368E /* CreateVC.swift in Sources */,
 				FF04C849293291C800FDDDAD /* RegistrationVC.swift in Sources */,
 				FFE220AD29524FCE00D85230 /* ImagePickerCell.swift in Sources */,
+				FF9AC91B29560744001FCB3A /* SubmitButtonCell.swift in Sources */,
 				FFE220AF29524FFD00D85230 /* DescriptionCell.swift in Sources */,
 				FF02C1A3294A029F007E1D07 /* RangeCell.swift in Sources */,
 				FF6C0487294B2BD900F09AC7 /* UserModel.swift in Sources */,
+				FF9AC91D29560C78001FCB3A /* ValidatedCell.swift in Sources */,
 				FF2751CA2922582600686D9D /* LoginVC.swift in Sources */,
 				FFD0F013293E22E200A1368E /* CreatePetProtocols.swift in Sources */,
 				FFD70600293E36BD00C36FDC /* CurrencyFormatter.swift in Sources */,
