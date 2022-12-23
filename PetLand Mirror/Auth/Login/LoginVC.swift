@@ -9,6 +9,8 @@ import UIKit
 import FirebaseAuth
 
 final class LoginVC: UIViewController {
+    static let identifier = "Auth.Login"
+    
     @IBOutlet var loginButton: UIButton!
     @IBOutlet var emailTF: UITextField!
     @IBOutlet var passwordTF: UITextField!

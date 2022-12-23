@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina5_9" orientation="portrait" appearance="dark"/>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -8,16 +8,16 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--LoginVC-->
+        <!--Login-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController storyboardIdentifier="Login" modalPresentationStyle="fullScreen" id="BYZ-38-t0r" customClass="LoginVC" customModule="PetLand_Mirror" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Auth.Login" modalPresentationStyle="fullScreen" id="BYZ-38-t0r" userLabel="Login" customClass="LoginVC" customModule="PetLand_Mirror" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" selected="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="o44-kU-sjP" userLabel="UsernameTF">
-                                <rect key="frame" x="47" y="311.33333333333331" width="281" height="40"/>
+                                <rect key="frame" x="47" y="267" width="281" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="Ptc-gv-ihl"/>
                                 </constraints>
@@ -28,7 +28,7 @@
                                 </connections>
                             </textField>
                             <textField opaque="NO" tag="1" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="QEi-96-sud">
-                                <rect key="frame" x="47" y="381.33333333333331" width="281" height="40"/>
+                                <rect key="frame" x="47" y="337" width="281" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="JbM-Na-hdW"/>
                                 </constraints>
@@ -41,13 +41,13 @@
                                 </connections>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter your email and password" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q75-Du-pqX">
-                                <rect key="frame" x="47" y="429.33333333333331" width="281" height="32"/>
+                                <rect key="frame" x="47" y="385" width="281" height="32"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
                                 <color key="textColor" systemColor="secondaryLabelColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xoc-e7-AdB">
-                                <rect key="frame" x="127.33333333333334" y="461.33333333333331" width="120.33333333333334" height="34"/>
+                                <rect key="frame" x="127.5" y="417" width="120" height="34"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Login"/>
                                 <connections>
@@ -55,7 +55,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y17-lf-m5c">
-                                <rect key="frame" x="145.66666666666666" y="743" width="84" height="35"/>
+                                <rect key="frame" x="145.5" y="632" width="84" height="35"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Sign Up"/>
                                 <connections>
@@ -63,10 +63,10 @@
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yci-Rp-bwc" userLabel="Welcome View">
-                                <rect key="frame" x="0.0" y="47" width="375" height="264.33333333333331"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="267"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome to PetLand!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7St-3o-BZj">
-                                        <rect key="frame" x="32.666666666666657" y="111.66666666666666" width="310" height="41"/>
+                                        <rect key="frame" x="32.5" y="113" width="310" height="41"/>
                                         <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -115,81 +115,53 @@
             </objects>
             <point key="canvasLocation" x="1079.2" y="3.6945812807881775"/>
         </scene>
-        <!--RegistrationVC-->
+        <!--Registration-->
         <scene sceneID="cI5-xj-S3g">
             <objects>
-                <viewController storyboardIdentifier="Registration" modalPresentationStyle="fullScreen" id="3hq-1G-Y6J" customClass="RegistrationVC" customModule="PetLand_Mirror" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Auth.Registration" modalPresentationStyle="fullScreen" id="3hq-1G-Y6J" userLabel="Registration" customClass="RegistrationVC" customModule="PetLand_Mirror" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Dns-NY-VJw">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SB5-Pl-Iua">
-                                <rect key="frame" x="0.0" y="47" width="375" height="731"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GuR-cZ-pgN" userLabel="Content View">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="731"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                         <subviews>
-                                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="tLP-Nc-Lr6">
-                                                <rect key="frame" x="0.0" y="125" width="375" height="350"/>
-                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="350" id="HTY-OZ-pFp"/>
-                                                </constraints>
-                                            </tableView>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zS4-WZ-fkz">
-                                                <rect key="frame" x="116" y="505" width="143" height="35"/>
-                                                <state key="normal" title="Button"/>
-                                                <buttonConfiguration key="configuration" style="filled" title="Create Account"/>
-                                                <connections>
-                                                    <action selector="onCreateAccontButtonPress" destination="3hq-1G-Y6J" eventType="touchUpInside" id="GIm-GV-KNp"/>
-                                                </connections>
-                                            </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b3a-sU-KOQ">
-                                                <rect key="frame" x="149.66666666666666" y="696" width="76" height="35"/>
+                                                <rect key="frame" x="149.5" y="632.5" width="76" height="34.5"/>
                                                 <state key="normal" title="Button"/>
-                                                <buttonConfiguration key="configuration" style="plain" title="Sign In"/>
+                                                <buttonConfiguration key="configuration" style="plain" title="Sign In">
+                                                    <fontDescription key="titleFontDescription" style="UICTFontTextStyleBody"/>
+                                                </buttonConfiguration>
                                                 <connections>
                                                     <segue destination="BYZ-38-t0r" kind="showDetail" id="T54-NS-4Aa"/>
                                                 </connections>
                                             </button>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="All fields must be filled and valid" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Ef-e6-CSO">
-                                                <rect key="frame" x="96.333333333333329" y="491" width="182.66666666666669" height="14"/>
-                                                <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
-                                                <color key="textColor" systemColor="systemRedColor"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome to PetLand!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fv2-Of-FH3">
+                                                <rect key="frame" x="0.0" y="0.0" width="375" height="100"/>
+                                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
+                                                <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YUZ-e2-SC8" userLabel="Welcome View">
-                                                <rect key="frame" x="0.0" y="0.0" width="375" height="125"/>
-                                                <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome to PetLand!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LPS-Mw-Rx6">
-                                                        <rect key="frame" x="32.666666666666657" y="42" width="310" height="41"/>
-                                                        <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
-                                                        <nil key="textColor"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                </subviews>
+                                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="insetGrouped" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" estimatedSectionHeaderHeight="-1" sectionFooterHeight="18" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="tLP-Nc-Lr6">
+                                                <rect key="frame" x="0.0" y="100" width="375" height="532.5"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                                <constraints>
-                                                    <constraint firstItem="LPS-Mw-Rx6" firstAttribute="centerY" secondItem="YUZ-e2-SC8" secondAttribute="centerY" id="LQf-Ij-LAk"/>
-                                                    <constraint firstItem="LPS-Mw-Rx6" firstAttribute="centerX" secondItem="YUZ-e2-SC8" secondAttribute="centerX" id="uv3-QH-noC"/>
-                                                </constraints>
-                                            </view>
+                                            </tableView>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
-                                            <constraint firstItem="YUZ-e2-SC8" firstAttribute="top" secondItem="GuR-cZ-pgN" secondAttribute="top" id="52d-cT-QRL"/>
-                                            <constraint firstItem="tLP-Nc-Lr6" firstAttribute="width" secondItem="GuR-cZ-pgN" secondAttribute="width" id="5eh-Lf-KoJ"/>
-                                            <constraint firstItem="YUZ-e2-SC8" firstAttribute="width" secondItem="GuR-cZ-pgN" secondAttribute="width" id="7HD-W3-0m9"/>
-                                            <constraint firstItem="tLP-Nc-Lr6" firstAttribute="centerX" secondItem="GuR-cZ-pgN" secondAttribute="centerX" id="Dqx-EH-QiE"/>
-                                            <constraint firstItem="8Ef-e6-CSO" firstAttribute="centerX" secondItem="zS4-WZ-fkz" secondAttribute="centerX" id="JdJ-6d-Uer"/>
-                                            <constraint firstItem="YUZ-e2-SC8" firstAttribute="centerX" secondItem="GuR-cZ-pgN" secondAttribute="centerX" id="KYb-GJ-u8c"/>
-                                            <constraint firstItem="8Ef-e6-CSO" firstAttribute="bottom" secondItem="zS4-WZ-fkz" secondAttribute="top" id="OJ6-EN-nR2"/>
+                                            <constraint firstItem="tLP-Nc-Lr6" firstAttribute="top" secondItem="fv2-Of-FH3" secondAttribute="bottom" id="40q-mJ-Wwl"/>
                                             <constraint firstAttribute="bottom" secondItem="b3a-sU-KOQ" secondAttribute="bottom" id="Oc2-oy-SDi"/>
-                                            <constraint firstItem="zS4-WZ-fkz" firstAttribute="top" secondItem="tLP-Nc-Lr6" secondAttribute="bottom" constant="30" id="UP5-0h-cCX"/>
-                                            <constraint firstItem="YUZ-e2-SC8" firstAttribute="bottom" secondItem="tLP-Nc-Lr6" secondAttribute="top" id="YVn-4g-kB9"/>
-                                            <constraint firstItem="tLP-Nc-Lr6" firstAttribute="bottom" secondItem="GuR-cZ-pgN" secondAttribute="bottom" multiplier="0.65" id="aEf-Qe-Nwv"/>
-                                            <constraint firstItem="zS4-WZ-fkz" firstAttribute="centerX" secondItem="tLP-Nc-Lr6" secondAttribute="centerX" id="nKs-fu-Xdd"/>
+                                            <constraint firstItem="b3a-sU-KOQ" firstAttribute="top" secondItem="tLP-Nc-Lr6" secondAttribute="bottom" id="TFz-bt-XVf"/>
+                                            <constraint firstAttribute="trailing" secondItem="fv2-Of-FH3" secondAttribute="trailing" id="Ufp-Lt-2tc"/>
+                                            <constraint firstItem="fv2-Of-FH3" firstAttribute="height" secondItem="GuR-cZ-pgN" secondAttribute="height" multiplier="0.15" id="azI-MW-vfw"/>
+                                            <constraint firstItem="fv2-Of-FH3" firstAttribute="leading" secondItem="GuR-cZ-pgN" secondAttribute="leading" id="d6B-dn-1wj"/>
+                                            <constraint firstAttribute="trailing" secondItem="tLP-Nc-Lr6" secondAttribute="trailing" id="eG5-KZ-I32"/>
                                             <constraint firstItem="b3a-sU-KOQ" firstAttribute="centerX" secondItem="GuR-cZ-pgN" secondAttribute="centerX" id="uCd-mE-DA9"/>
+                                            <constraint firstItem="fv2-Of-FH3" firstAttribute="top" secondItem="GuR-cZ-pgN" secondAttribute="top" id="xeD-MK-RVP"/>
+                                            <constraint firstItem="tLP-Nc-Lr6" firstAttribute="leading" secondItem="GuR-cZ-pgN" secondAttribute="leading" id="z2C-Rn-GgE"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -215,29 +187,21 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="createAccountButton" destination="zS4-WZ-fkz" id="DJw-ti-3Pk"/>
                         <outlet property="scrollView" destination="SB5-Pl-Iua" id="aab-oU-l5s"/>
-                        <outlet property="statusLabel" destination="8Ef-e6-CSO" id="jQP-Kt-KRD"/>
                         <outlet property="tableView" destination="tLP-Nc-Lr6" id="1ek-4J-NTG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CtR-f7-1dA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1802" y="4"/>
+            <point key="canvasLocation" x="1800.8" y="3.6945812807881775"/>
         </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="T54-NS-4Aa"/>
-    </inferredMetricsTieBreakers>
     <resources>
         <systemColor name="secondaryLabelColor">
             <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="systemRedColor">
-            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

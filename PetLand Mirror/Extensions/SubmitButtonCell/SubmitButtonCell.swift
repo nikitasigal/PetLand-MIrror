@@ -1,5 +1,5 @@
 //
-//  CreateButtonCell.swift
+//  SubmitButtonCell.swift
 //  PetLand Mirror
 //
 //  Created by Никита Сигал on 23.12.2022.
@@ -20,10 +20,10 @@ class SubmitButtonCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
     }
     
-    func configure(_ delegate: SubmitButtonCellDelegate) {
+    func configure(title: String?,_ delegate: SubmitButtonCellDelegate) {
+        self.submitButton.setTitle(title, for: .normal)
         self.delegate = delegate
     }
     

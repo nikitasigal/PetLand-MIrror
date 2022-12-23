@@ -22,7 +22,7 @@ final class ProfileVC: UIViewController {
     
     @IBAction func onLogoutButtonPress() {
         AuthManager.shared.logout()
-        let vc = UIStoryboard(name: "Auth", bundle: nil).instantiateViewController(withIdentifier: "Login")
+        let vc = UIStoryboard(name: "Auth", bundle: nil).instantiateViewController(withIdentifier: LoginVC.identifier)
         
         present(vc, animated: true)
     }

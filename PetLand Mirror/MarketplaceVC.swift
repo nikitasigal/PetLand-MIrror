@@ -9,6 +9,8 @@ import FirebaseAuth
 import UIKit
 
 final class MarketplaceVC: UIViewController {
+    static let identifier = "Marketplace.Main"
+    
     // MARK: Outlets
 
     @IBOutlet var searchBar: UISearchBar!

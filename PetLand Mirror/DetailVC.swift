@@ -8,7 +8,9 @@
 import UIKit
 
 final class DetailVC: UIViewController {
-    // Outlets
+    static let identifier = "Marketplace.Detail"
+    
+    // MARK: Outlets
     @IBOutlet var scrollView: UIScrollView!
     @IBOutlet var frameView: UIView!
 
@@ -18,10 +20,11 @@ final class DetailVC: UIViewController {
     @IBOutlet var petName: UILabel!
     @IBOutlet var petImage: UIImageView!
 
-    // External vars
+    // MARK: Internal vars
     var dataModel: Pet!
     var dataImage: UIImage!
 
+    // MARK: Setup
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -37,9 +40,7 @@ final class DetailVC: UIViewController {
         petDescription.text = dataModel.description
         petPrice.text = formatCurrencyRU(input: dataModel.price)
     }
-}
-
-extension DetailVC {
+    
     func configure(for data: Pet, withImage image: UIImage?) {
         dataModel = data
         dataImage = image ?? UIImage(systemName: "nosign")

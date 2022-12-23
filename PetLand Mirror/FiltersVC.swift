@@ -1,5 +1,5 @@
 //
-//  FilterVC.swift
+//  FiltersVC.swift
 //  PetLand Mirror
 //
 //  Created by Никита Сигал on 05.12.2022.
@@ -8,11 +8,15 @@
 import UIKit
 
 class FiltersVC: UIViewController {
-    // Outlets
+    static let identifier = "Marketplace.Filters"
+    
+    // MARK: Outlets
     @IBOutlet var tableView: UITableView!
 
-    // External vars
+    // MARK: External vars
     weak var marketplaceVC: MarketplaceVC!
+    
+    // MARK: Internal vars
     var checkboxCells: [CheckboxCell] = []
     var rangeCell: RangeCell!
     var favouritesToggleCell: FavouritesToggleCell!

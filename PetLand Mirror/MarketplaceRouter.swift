@@ -13,7 +13,7 @@ final class MarketplaceRouter {
 
 extension MarketplaceRouter: MarketplaceRoutingLogic {
     func routeToFilter() {
-        guard let vc = viewController?.storyboard?.instantiateViewController(withIdentifier: "Filter") as? FiltersVC,
+        guard let vc = viewController?.storyboard?.instantiateViewController(withIdentifier: FiltersVC.identifier) as? FiltersVC,
               let sheet = vc.sheetPresentationController
         else { return }
         sheet.detents = [.medium(), .large()]
@@ -29,20 +29,19 @@ extension MarketplaceRouter: MarketplaceRoutingLogic {
               let sheet = vc.sheetPresentationController
         else { return }
         sheet.prefersGrabberVisible = true
-        
+
         vc.configure(callback: callback)
         viewController?.navigationController?.present(vc, animated: true)
     }
 
     func routeToDetail() {
-        guard let vc = viewController?.storyboard?.instantiateViewController(withIdentifier: "Detail")
+        guard let vc = viewController?.storyboard?.instantiateViewController(withIdentifier: DetailVC.identifier) as? DetailVC,
+              let selectedRow = viewController?.tableView.indexPathForSelectedRow?.row,
+              let model = viewController?.data[selectedRow],
+              let image = viewController?.images[model.imageID]
         else { return }
 
-        let selectedRow = viewController?.tableView.indexPathForSelectedRow?.row
-        let model = viewController?.data[selectedRow!]
-        let image = viewController?.images[model?.imageID ?? ""]
-
-        (vc as! DetailVC).configure(for: model!, withImage: image)
+        vc.configure(for: model, withImage: image)
         viewController?.navigationController?.pushViewController(vc, animated: true)
     }
 }

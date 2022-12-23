@@ -21,7 +21,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
         if Auth.auth().currentUser == nil {
             let vc = UIStoryboard(name: "Auth", bundle: nil)
-                .instantiateViewController(withIdentifier: "Login")
+                .instantiateViewController(withIdentifier: LoginVC.identifier)
             let navVC = UINavigationController(rootViewController: vc)
             window.rootViewController = navVC
         } else {

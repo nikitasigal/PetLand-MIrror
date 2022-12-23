@@ -8,20 +8,26 @@
 import UIKit
 
 class CreateVC: UIViewController {
-    static let identifier = "Create"
+    static let identifier = "Marketplace.Create"
     
+    // MARK: Outlets
+
     @IBOutlet var tableView: UITableView!
     
+    // MARK: Internal vars
+
     var imagePickerCell: ImagePickerCell!
     var nameCell: ValidatedTextFieldCell!
     var priceCell: ValidatedTextFieldCell!
-    var speciesCell: SelectAnimalCell!
+    var speciesCell: SpeciesPickerCell!
     var breedCell: ValidatedTextFieldCell!
     var descriptionCell: DescriptionCell!
     var submitCell: SubmitButtonCell!
     
     var cells: [[ValidatedCell]] = []
     
+    // MARK: VIP
+
     private var interactor: CreateBusinessLogic?
     private var callback: (() -> Void)?
     
@@ -53,59 +59,20 @@ class CreateVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        // dismiss keyboard on tap
-        let tap = UITapGestureRecognizer(target: view, action: #selector(UIView.endEditing))
-        view.addGestureRecognizer(tap)
-        tableView.keyboardDismissMode = .onDrag
-        
-        tableView.delegate = self
-        tableView.dataSource = self
-        
-        tableView.rowHeight = UITableView.automaticDimension
-        tableView.sectionHeaderHeight = UITableView.automaticDimension
-        
-        tableView.register(UINib(nibName: ValidatedTextFieldCell.identifier, bundle: nil), forCellReuseIdentifier: ValidatedTextFieldCell.identifier)
-        
-        cells = createCells()
-        
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
+        configureTableView()
+        configureKeyboard()
     }
 }
 
-// MARK: UI Configuration
+// MARK: Keyboard Logic
 
 extension CreateVC {
-    func createCells() -> [[ValidatedCell]] {
-        imagePickerCell = tableView.dequeueReusableCell(withIdentifier: ImagePickerCell.identifier) as? ImagePickerCell
-        imagePickerCell.configure(delegate: self)
+    func configureKeyboard() {
+        let tap = UITapGestureRecognizer(target: view, action: #selector(UIView.endEditing))
+        view.addGestureRecognizer(tap)
         
-        nameCell = tableView.dequeueReusableCell(withIdentifier: ValidatedTextFieldCell.identifier) as? ValidatedTextFieldCell
-        nameCell.configure(placeholder: "Name", type: .text)
-        
-        priceCell = tableView.dequeueReusableCell(withIdentifier: ValidatedTextFieldCell.identifier) as? ValidatedTextFieldCell
-        priceCell.configure(placeholder: "Price", type: .integer)
-        
-        speciesCell = tableView.dequeueReusableCell(withIdentifier: SelectAnimalCell.identifier) as? SelectAnimalCell
-        
-        breedCell = tableView.dequeueReusableCell(withIdentifier: ValidatedTextFieldCell.identifier) as? ValidatedTextFieldCell
-        breedCell.configure(placeholder: "Breed", type: .text)
-        
-        descriptionCell = tableView.dequeueReusableCell(withIdentifier: DescriptionCell.identifier) as? DescriptionCell
-        descriptionCell.configure { [weak self] in
-            self?.tableView.beginUpdates()
-            self?.tableView.endUpdates()
-        }
-        
-        submitCell = tableView.dequeueReusableCell(withIdentifier: SubmitButtonCell.identifier) as? SubmitButtonCell
-        submitCell.configure(self)
-            
-        return [[imagePickerCell],
-                [nameCell, priceCell],
-                [speciesCell, breedCell],
-                [descriptionCell],
-                [submitCell]]
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
     
     @objc
@@ -120,6 +87,58 @@ extension CreateVC {
     @objc
     func keyboardWillHide(notification: NSNotification) {
         tableView.frame.origin.y = 0
+    }
+}
+
+// MARK: TableView Configuration
+
+extension CreateVC {
+    func configureTableView() {
+        tableView.keyboardDismissMode = .onDrag
+        
+        tableView.delegate = self
+        tableView.dataSource = self
+        
+        tableView.rowHeight = UITableView.automaticDimension
+        tableView.sectionHeaderHeight = UITableView.automaticDimension
+        
+        tableView.register(UINib(nibName: ValidatedTextFieldCell.identifier, bundle: nil),
+                           forCellReuseIdentifier: ValidatedTextFieldCell.identifier)
+        tableView.register(UINib(nibName: SubmitButtonCell.identifier, bundle: nil),
+                           forCellReuseIdentifier: SubmitButtonCell.identifier)
+        
+        cells = createCells()
+    }
+    
+    func createCells() -> [[ValidatedCell]] {
+        imagePickerCell = tableView.dequeueReusableCell(withIdentifier: ImagePickerCell.identifier) as? ImagePickerCell
+        imagePickerCell.configure(delegate: self)
+        
+        nameCell = tableView.dequeueReusableCell(withIdentifier: ValidatedTextFieldCell.identifier) as? ValidatedTextFieldCell
+        nameCell.configure(placeholder: "Name", type: .text)
+        
+        priceCell = tableView.dequeueReusableCell(withIdentifier: ValidatedTextFieldCell.identifier) as? ValidatedTextFieldCell
+        priceCell.configure(placeholder: "Price", type: .integer)
+        
+        speciesCell = tableView.dequeueReusableCell(withIdentifier: SpeciesPickerCell.identifier) as? SpeciesPickerCell
+        
+        breedCell = tableView.dequeueReusableCell(withIdentifier: ValidatedTextFieldCell.identifier) as? ValidatedTextFieldCell
+        breedCell.configure(placeholder: "Breed", type: .text)
+        
+        descriptionCell = tableView.dequeueReusableCell(withIdentifier: DescriptionCell.identifier) as? DescriptionCell
+        descriptionCell.configure {
+            self.tableView.beginUpdates()
+            self.tableView.endUpdates()
+        }
+        
+        submitCell = tableView.dequeueReusableCell(withIdentifier: SubmitButtonCell.identifier) as? SubmitButtonCell
+        submitCell.configure(title: "Create", self)
+            
+        return [[imagePickerCell],
+                [nameCell, priceCell],
+                [speciesCell, breedCell],
+                [descriptionCell],
+                [submitCell]]
     }
 }
 
@@ -164,7 +183,7 @@ extension CreateVC: SubmitButtonCellDelegate {
         }) else { return }
         
         let model = Pet(name: nameCell.text!,
-                        species: speciesCell.animal,
+                        species: speciesCell.species,
                         breed: breedCell.text!,
                         description: descriptionCell.text!,
                         price: Int(priceCell.text!)!)
