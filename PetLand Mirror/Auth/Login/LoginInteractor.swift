@@ -7,7 +7,7 @@
 
 final class LoginInteractor {
     var presenter: LoginPresentationLogic?
-    private var authManager = AuthManager.shared
+    private var authManager: AuthManagerProtocol = AuthManager.shared
 }
 
 extension LoginInteractor: LoginBusinessLogic {

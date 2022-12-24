@@ -34,6 +34,9 @@
 		FF9AC93029566193001FCB3A /* LoginProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF9AC92F29566193001FCB3A /* LoginProtocols.swift */; };
 		FF9AC93229566225001FCB3A /* LoginInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF9AC93129566225001FCB3A /* LoginInteractor.swift */; };
 		FF9AC9342956622C001FCB3A /* LoginPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF9AC9332956622C001FCB3A /* LoginPresenter.swift */; };
+		FF9AC93629568A8E001FCB3A /* ProfileProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF9AC93529568A8E001FCB3A /* ProfileProtocols.swift */; };
+		FF9AC93829568DC8001FCB3A /* ProfileInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF9AC93729568DC8001FCB3A /* ProfileInteractor.swift */; };
+		FF9AC93A29568DD4001FCB3A /* ProfilePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF9AC93929568DD4001FCB3A /* ProfilePresenter.swift */; };
 		FFB35C32293BCA5600E11ED3 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FFB35C31293BCA5600E11ED3 /* GoogleService-Info.plist */; };
 		FFB35C35293BCB9A00E11ED3 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = FFB35C34293BCB9A00E11ED3 /* FirebaseAnalytics */; };
 		FFB35C37293BCB9A00E11ED3 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = FFB35C36293BCB9A00E11ED3 /* FirebaseAuth */; };
@@ -98,6 +101,9 @@
 		FF9AC92F29566193001FCB3A /* LoginProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginProtocols.swift; sourceTree = "<group>"; };
 		FF9AC93129566225001FCB3A /* LoginInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginInteractor.swift; sourceTree = "<group>"; };
 		FF9AC9332956622C001FCB3A /* LoginPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPresenter.swift; sourceTree = "<group>"; };
+		FF9AC93529568A8E001FCB3A /* ProfileProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileProtocols.swift; sourceTree = "<group>"; };
+		FF9AC93729568DC8001FCB3A /* ProfileInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileInteractor.swift; sourceTree = "<group>"; };
+		FF9AC93929568DD4001FCB3A /* ProfilePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePresenter.swift; sourceTree = "<group>"; };
 		FFB35C31293BCA5600E11ED3 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		FFB35C40293BD10600E11ED3 /* Navigation.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Navigation.storyboard; sourceTree = "<group>"; };
 		FFB35C42293BDEDA00E11ED3 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
@@ -294,6 +300,9 @@
 			children = (
 				FFB35C48293CB8F200E11ED3 /* Profile.storyboard */,
 				FF6C0484294B271400F09AC7 /* ProfileVC.swift */,
+				FF9AC93529568A8E001FCB3A /* ProfileProtocols.swift */,
+				FF9AC93729568DC8001FCB3A /* ProfileInteractor.swift */,
+				FF9AC93929568DD4001FCB3A /* ProfilePresenter.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -463,6 +472,7 @@
 				FFDF124829378F8E0046FEF0 /* ValidatedTextFieldCell.swift in Sources */,
 				FF6C0489294B5A6000F09AC7 /* FavouritesToggleCell.swift in Sources */,
 				FFD0F006293D35DB00A1368E /* DetailVC.swift in Sources */,
+				FF9AC93829568DC8001FCB3A /* ProfileInteractor.swift in Sources */,
 				FFD0EFFF293D22FE00A1368E /* MarketplacePresenter.swift in Sources */,
 				FF9AC92C29564459001FCB3A /* RegisterPresenter.swift in Sources */,
 				FF9AC93229566225001FCB3A /* LoginInteractor.swift in Sources */,
@@ -475,6 +485,7 @@
 				FFB35C4D293CFD2300E11ED3 /* MarketplaceCellVC.swift in Sources */,
 				FFD0F00D293E22AC00A1368E /* CreateVC.swift in Sources */,
 				FF04C849293291C800FDDDAD /* RegisterVC.swift in Sources */,
+				FF9AC93A29568DD4001FCB3A /* ProfilePresenter.swift in Sources */,
 				FF9AC93029566193001FCB3A /* LoginProtocols.swift in Sources */,
 				FFE220AD29524FCE00D85230 /* ImagePickerCell.swift in Sources */,
 				FF9AC91B29560744001FCB3A /* SubmitButtonCell.swift in Sources */,
@@ -493,6 +504,7 @@
 				FFD0F011293E22D600A1368E /* CreatePresenter.swift in Sources */,
 				FFD0EFFD293D186000A1368E /* MarketplaceInteractor.swift in Sources */,
 				FFD0EFF1293D05D600A1368E /* FirestoreManager.swift in Sources */,
+				FF9AC93629568A8E001FCB3A /* ProfileProtocols.swift in Sources */,
 				FFD0EFF4293D083E00A1368E /* PetModel.swift in Sources */,
 				FF02C19F294915EB007E1D07 /* CheckboxCell.swift in Sources */,
 			);

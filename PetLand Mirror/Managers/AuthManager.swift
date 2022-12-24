@@ -11,7 +11,7 @@ import Foundation
 protocol AuthManagerProtocol {
     func login(email: String, password: String, _ completion: @escaping (Error?) -> Void)
     func register(email: String, password: String, _ completion: @escaping (Error?) -> Void)
-    func logout()
+    func logout(_ completion: @escaping (Error?) -> Void)
     var currentUserID: String? { get }
 }
 
@@ -43,11 +43,14 @@ extension AuthManager: AuthManagerProtocol {
         }
     }
     
-    func logout() {
+    func logout(_ completion: @escaping (Error?) -> Void) {
         if Auth.auth().currentUser != nil {
             do {
                 try Auth.auth().signOut()
-            } catch (_) {}
+                completion(nil)
+            } catch (let error) {
+                completion(error)
+            }
         }
     }
 

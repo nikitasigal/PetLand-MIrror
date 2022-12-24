@@ -7,8 +7,8 @@
 
 final class RegisterInteractor {
     var presenter: RegisterPresentationLogic?
-    private var authManager = AuthManager.shared
-    private var firestoreManager = FirestoreManager.shared
+    private var authManager: AuthManagerProtocol = AuthManager.shared
+    private var firestoreManager: FirestoreManagerProtocol = FirestoreManager.shared
 }
 
 extension RegisterInteractor: RegisterBusinessLogic {

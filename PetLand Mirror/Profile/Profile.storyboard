@@ -16,32 +16,52 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="160-Oy-SA4">
-                                <rect key="frame" x="16" y="396" width="343" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="E9N-ap-erI">
+                                <rect key="frame" x="20.000000000000007" y="106" width="112.66666666666669" height="112.66666666666669"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="E9N-ap-erI" secondAttribute="height" multiplier="1:1" id="IdJ-gN-IaP"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Firstname Lastname" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eXI-9r-tmH">
+                                <rect key="frame" x="147.66666666666663" y="106" width="227.33333333333337" height="27"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YMR-uY-a5d">
-                                <rect key="frame" x="147" y="465" width="82" height="35"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="Log out">
-                                    <color key="baseBackgroundColor" systemColor="systemRedColor"/>
-                                </buttonConfiguration>
-                                <connections>
-                                    <action selector="onLogoutButtonPress" destination="Y6W-OH-hqX" eventType="touchUpInside" id="ZV9-R6-5QW"/>
-                                </connections>
-                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="email@email.email" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Maw-IN-U89">
+                                <rect key="frame" x="147.66666666666666" y="141" width="140.99999999999997" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" systemColor="secondaryLabelColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="FFFF-FFFF-FFFF-FFFF" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t8r-fg-aHg">
+                                <rect key="frame" x="104.66666666666669" y="708" width="166" height="21"/>
+                                <fontDescription key="fontDescription" type="system" weight="ultraLight" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Maw-IN-U89" firstAttribute="leading" secondItem="eXI-9r-tmH" secondAttribute="leading" id="1lB-VD-XkI"/>
+                            <constraint firstItem="eXI-9r-tmH" firstAttribute="leading" secondItem="E9N-ap-erI" secondAttribute="trailing" constant="15" id="3Yh-uO-Jm0"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="t8r-fg-aHg" secondAttribute="bottom" id="7eu-Zl-ks4"/>
+                            <constraint firstItem="Maw-IN-U89" firstAttribute="top" secondItem="eXI-9r-tmH" secondAttribute="bottom" constant="8" symbolic="YES" id="Bog-KD-gcO"/>
+                            <constraint firstItem="eXI-9r-tmH" firstAttribute="top" secondItem="E9N-ap-erI" secondAttribute="top" id="GPv-tX-8N9"/>
+                            <constraint firstItem="E9N-ap-erI" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="15" id="LYR-Dj-uFR"/>
+                            <constraint firstItem="t8r-fg-aHg" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="d2N-JF-S2a"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="eXI-9r-tmH" secondAttribute="trailing" id="dz8-WU-6iU"/>
+                            <constraint firstItem="E9N-ap-erI" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="fEi-5x-fQ1"/>
+                            <constraint firstItem="E9N-ap-erI" firstAttribute="width" secondItem="5EZ-qb-Rvc" secondAttribute="width" multiplier="0.3" id="ss1-Lv-2Ln"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Cuk-NL-B8M"/>
                     <connections>
-                        <outlet property="label" destination="160-Oy-SA4" id="H7S-q2-qFS"/>
-                        <outlet property="logoutButton" destination="YMR-uY-a5d" id="Eao-Es-MYy"/>
+                        <outlet property="emailLabel" destination="Maw-IN-U89" id="yFu-Os-o8v"/>
+                        <outlet property="nameLabel" destination="eXI-9r-tmH" id="hWh-MQ-iiz"/>
+                        <outlet property="profileImage" destination="E9N-ap-erI" id="IYi-zX-p7x"/>
+                        <outlet property="uuidLabel" destination="t8r-fg-aHg" id="SCi-ub-qae"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -71,11 +91,11 @@
     </scenes>
     <resources>
         <image name="person.fill" catalog="system" width="128" height="120"/>
+        <systemColor name="secondaryLabelColor">
+            <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="systemRedColor">
-            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
