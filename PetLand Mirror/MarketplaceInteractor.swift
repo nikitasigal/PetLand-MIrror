@@ -16,26 +16,26 @@ final class MarketplaceInteractor {
 
 extension MarketplaceInteractor: MarketplaceBusinessLogic {
     func fetchPets() {
-        firestoreManager.getItems(from: .pets, as: Pet.self) { result in
+        firestoreManager.getItems(from: .pets, as: Pet.self) { [weak self] result in
             switch result {
             case .success(let data):
                 _ = data.map { item in
-                    self.fetchImage(withID: item.imageID)
+                    self?.fetchImage(withID: item.imageID)
                 }
-                self.presenter?.presentPets(data)
+                self?.presenter?.presentPets(data)
             case .failure(let error):
-                self.presenter?.presentError(error)
+                self?.presenter?.presentError(error)
             }
         }
     }
 
     func fetchImage(withID imageID: String) {
-        storageManager.getImage(withID: imageID) { result in
+        storageManager.getImage(withID: imageID) { [weak self] result in
             switch result {
             case .success(let image):
-                self.presenter?.presentImage(image, withID: imageID)
+                self?.presenter?.presentImage(image, withID: imageID)
             case .failure(let error):
-                self.presenter?.presentError(error)
+                self?.presenter?.presentError(error)
             }
         }
     }
@@ -46,13 +46,13 @@ extension MarketplaceInteractor: MarketplaceBusinessLogic {
             return
         }
 
-        firestoreManager.getItem(from: .users, withID: userID, as: User.self) { result in
+        firestoreManager.getItem(from: .users, withID: userID, as: User.self) { [weak self] result in
             switch result {
             case .success(let user):
-                self.fetchImage(withID: user.imageID)
-                self.presenter?.presentCurrentUser(user)
+                self?.fetchImage(withID: user.imageID)
+                self?.presenter?.presentCurrentUser(user)
             case .failure(let error):
-                self.presenter?.presentError(error)
+                self?.presenter?.presentError(error)
             }
         }
     }
@@ -66,11 +66,11 @@ extension MarketplaceInteractor: MarketplaceBusinessLogic {
         firestoreManager.updateItem(in: .users,
                                     withID: userID,
                                     for: "favourites",
-                                    set: Array(newValue)) { error in
+                                    set: Array(newValue)) { [weak self] error in
             if let error {
-                self.presenter?.presentError(error)
+                self?.presenter?.presentError(error)
             } else {
-                self.fetchCurrentUser()
+                self?.fetchCurrentUser()
             }
         }
     }

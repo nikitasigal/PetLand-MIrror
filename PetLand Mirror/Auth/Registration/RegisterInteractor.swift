@@ -13,20 +13,20 @@ final class RegisterInteractor {
 
 extension RegisterInteractor: RegisterBusinessLogic {
     func register(_ user: User, withPassword password: String) {
-        authManager.register(email: user.email, password: password) { error in
+        authManager.register(email: user.email, password: password) { [weak self] error in
             if let error {
-                self.presenter?.presentError(error)
+                self?.presenter?.presentError(error)
                 return
             }
             
             var newUser = user
-            newUser.uid = self.authManager.currentUserID
+            newUser.uid = self?.authManager.currentUserID
 
-            self.firestoreManager.addItem(newUser, to: .users) { error in
+            self?.firestoreManager.addItem(newUser, to: .users) { [weak self] error in
                 if let error {
-                    self.presenter?.presentError(error)
+                    self?.presenter?.presentError(error)
                 } else {
-                    self.presenter?.presentCompletion()
+                    self?.presenter?.presentCompletion()
                 }
             }
         }

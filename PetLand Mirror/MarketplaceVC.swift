@@ -162,7 +162,7 @@ extension MarketplaceVC {
         let searchController = UISearchController()
         searchController.searchResultsUpdater = self
         navigationItem.searchController = searchController
-        
+
         navigationController?.navigationBar.prefersLargeTitles = true
     }
 
@@ -192,8 +192,8 @@ extension MarketplaceVC {
 
     @objc
     func plusButtonTapped() {
-        router?.routeToCreatePet {
-            self.interactor?.fetchPets()
+        router?.routeToCreatePet { [weak self] in
+            self?.interactor?.fetchPets()
         }
     }
 }
@@ -207,7 +207,7 @@ extension MarketplaceVC: UITableViewDataSource, UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let model = filteredData[indexPath.row]
-        let cell = tableView.dequeueReusableCell(withIdentifier: "MarketplaceCell", for: indexPath) as! MarketplaceCellVC
+        let cell = tableView.dequeueReusableCell(withIdentifier: MarketplaceCellVC.identifier, for: indexPath) as! MarketplaceCellVC
         cell.configure(for: model,
                        withImage: images[model.imageID],
                        isFavourite: favourites.contains(model.uid!),

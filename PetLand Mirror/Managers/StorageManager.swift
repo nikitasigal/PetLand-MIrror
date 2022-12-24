@@ -42,7 +42,7 @@ extension StorageManager: StorageManagerProtocol {
     }
 
     func uploadImage(_ image: UIImage, withID imageID: String, _ completion: @escaping (Error?) -> Void) {
-        guard let imageData = image.jpegData(compressionQuality: 0.8) else { return }
+        guard let imageData = image.jpegData(compressionQuality: 1) else { return }
         storageRef.child("images").child(imageID).putData(imageData, metadata: nil) { metadata, error in
             guard metadata != nil else {
                 DispatchQueue.main.async { completion(StorageError.uploadError) }

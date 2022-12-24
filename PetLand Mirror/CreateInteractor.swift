@@ -15,15 +15,15 @@ final class CreateInteractor {
 
 extension CreateInteractor: CreateBusinessLogic {
     func addPet(_ data: Pet, withImage image: UIImage) {
-        firestoreManager.addItem(data, to: .pets) { error in
+        firestoreManager.addItem(data, to: .pets) { [weak self] error in
             if let error {
-                self.presenter?.presentError(error)
+                self?.presenter?.presentError(error)
             } else {
-                self.storageManager.uploadImage(image, withID: data.imageID) { error in
+                self?.storageManager.uploadImage(image, withID: data.imageID) { error in
                     if let error {
-                        self.presenter?.presentError(error)
+                        self?.presenter?.presentError(error)
                     } else {
-                        self.presenter?.presentCompletion()
+                        self?.presenter?.presentCompletion()
                     }
                 }
             }

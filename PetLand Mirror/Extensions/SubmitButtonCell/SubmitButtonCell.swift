@@ -13,20 +13,20 @@ protocol SubmitButtonCellDelegate: AnyObject {
 
 class SubmitButtonCell: UITableViewCell {
     static let identifier = "SubmitButtonCell"
-    
+
     @IBOutlet var submitButton: UIButton!
-    
+
     private weak var delegate: SubmitButtonCellDelegate?
-    
+
     override func awakeFromNib() {
         super.awakeFromNib()
     }
-    
-    func configure(title: String?,_ delegate: SubmitButtonCellDelegate) {
-        self.submitButton.setTitle(title, for: .normal)
+
+    func configure(title: String?, _ delegate: SubmitButtonCellDelegate) {
+        submitButton.setTitle(title, for: .normal)
         self.delegate = delegate
     }
-    
+
     @IBAction func onSubmitButtonPress() {
         delegate?.submitButtonPressed()
     }

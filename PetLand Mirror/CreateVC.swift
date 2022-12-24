@@ -128,9 +128,9 @@ extension CreateVC {
         breedCell.configure(placeholder: "Breed", type: .text)
         
         descriptionCell = tableView.dequeueReusableCell(withIdentifier: DescriptionCell.identifier) as? DescriptionCell
-        descriptionCell.configure {
-            self.tableView.beginUpdates()
-            self.tableView.endUpdates()
+        descriptionCell.configure { [weak self] in
+            self?.tableView.beginUpdates()
+            self?.tableView.endUpdates()
         }
         
         submitCell = tableView.dequeueReusableCell(withIdentifier: SubmitButtonCell.identifier) as? SubmitButtonCell

@@ -16,37 +16,36 @@ final class ProfileInteractor {
 
 extension ProfileInteractor: ProfileBusinessLogic {
     func logout() {
-        authManager.logout { error in
+        authManager.logout { [weak self] error in
             if let error {
-                self.presenter?.presentError(error)
+                self?.presenter?.presentError(error)
             } else {
-                self.presenter?.presentLogout()
+                self?.presenter?.presentLogout()
             }
         }
     }
-    
+
     func fetchCurrentUser() {
-        guard let currentUserID = authManager.currentUserID else {return}
-        
-        firestoreManager.getItem(from: .users, withID: currentUserID, as: User.self) { result in
+        guard let currentUserID = authManager.currentUserID else { return }
+
+        firestoreManager.getItem(from: .users, withID: currentUserID, as: User.self) { [weak self] result in
             switch result {
                 case .success(let user):
-                    self.fetchImage(withID: user.imageID)
-                    self.presenter?.presentCurrentUser(user)
+                    self?.fetchImage(withID: user.imageID)
+                    self?.presenter?.presentCurrentUser(user)
                 case .failure(let error):
-                    self.presenter?.presentError(error)
+                    self?.presenter?.presentError(error)
             }
         }
-        
     }
-    
+
     func fetchImage(withID imageID: String) {
-        storageManager.getImage(withID: imageID) { result in
+        storageManager.getImage(withID: imageID) { [weak self] result in
             switch result {
                 case .success(let image):
-                    self.presenter?.presentImage(image)
+                    self?.presenter?.presentImage(image)
                 case .failure(let error):
-                    self.presenter?.presentError(error)
+                    self?.presenter?.presentError(error)
             }
         }
     }

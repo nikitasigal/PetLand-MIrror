@@ -8,5 +8,5 @@
 import UIKit
 
 protocol ValidatedCell: UITableViewCell {
-    var isValid: Bool {get}
+    var isValid: Bool { get }
 }

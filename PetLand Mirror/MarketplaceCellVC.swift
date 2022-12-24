@@ -13,6 +13,8 @@ protocol MarketplaceCellDelegate: AnyObject {
 }
 
 final class MarketplaceCellVC: UITableViewCell {
+    static let identifier = "MarketplaceCell"
+    
     // Outlets
     @IBOutlet var frameView: UIView!
     @IBOutlet var petName: UILabel!

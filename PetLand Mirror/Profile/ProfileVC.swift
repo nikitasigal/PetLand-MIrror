@@ -96,8 +96,8 @@ extension ProfileVC {
         let ac = UIAlertController(title: "Do you really want to log out?",
                                    message: nil,
                                    preferredStyle: .alert)
-        ac.addAction(UIAlertAction(title: "Log out", style: .destructive, handler: { _ in
-            self.interactor?.logout()
+        ac.addAction(UIAlertAction(title: "Log out", style: .destructive, handler: { [weak self] _ in
+            self?.interactor?.logout()
         }))
         ac.addAction(UIAlertAction(title: "Cancel", style: .cancel))
         present(ac, animated: true)

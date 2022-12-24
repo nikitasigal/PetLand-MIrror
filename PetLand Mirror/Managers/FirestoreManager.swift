@@ -41,9 +41,7 @@ final class FirestoreManager: FirestoreManagerProtocol {
                 return
             }
 
-            DispatchQueue.main.async {
-                completion(.success(items))
-            }
+            DispatchQueue.main.async { completion(.success(items)) }
         }
     }
 
@@ -65,7 +63,7 @@ final class FirestoreManager: FirestoreManagerProtocol {
         do {
             try db.collection(collection.rawValue).document(documentID).setData(from: item, completion: completion)
         } catch {
-            completion(error)
+            DispatchQueue.main.async { completion(error) }
         }
     }
 }
