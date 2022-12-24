@@ -37,7 +37,7 @@ extension MarketplaceRouter: MarketplaceRoutingLogic {
     func routeToDetail() {
         guard let vc = viewController?.storyboard?.instantiateViewController(withIdentifier: DetailVC.identifier) as? DetailVC,
               let selectedRow = viewController?.tableView.indexPathForSelectedRow?.row,
-              let model = viewController?.data[selectedRow],
+              let model = viewController?.filteredData[selectedRow],
               let image = viewController?.images[model.imageID]
         else { return }
 

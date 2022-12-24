@@ -5,15 +5,13 @@
 //  Created by Никита Сигал on 14.11.2022.
 //
 
-import FirebaseAuth
 import UIKit
 
 final class MarketplaceVC: UIViewController {
     static let identifier = "Marketplace.Main"
-    
+
     // MARK: Outlets
 
-    @IBOutlet var searchBar: UISearchBar!
     @IBOutlet var sortButton: UIButton!
     @IBOutlet var filterButton: UIButton!
     @IBOutlet var tableView: UITableView!
@@ -43,45 +41,60 @@ final class MarketplaceVC: UIViewController {
         case ascending, descending
     }
 
-    var order: SortOrder = .ascending
-    func sortData() {
-        data.sort { l, r in
-            l.price < r.price
-        }
-        if order == .descending { data.reverse() }
+    var order: SortOrder = .ascending {
+        didSet { filterData() }
     }
 
     // MARK: Filtering
 
-    enum Filter: Equatable, Hashable {
-        case exclude(Pet.Species)
-        case priceRange(from: Int?, to: Int?)
-        case onlyFavourites
+    var inclusionFilter: Set<Pet.Species> = Set(Pet.Species.allCases) {
+        didSet { filterData() }
     }
 
-    var filters: Set<Filter> = [] {
+    var onlyFavouritesFilter: Bool = false {
         didSet { filterData() }
+    }
+
+    var priceRangeFilter: (Int?, Int?) {
+        didSet { filterData() }
+    }
+
+    var containsTextFilter: String? {
+        didSet { filterData() }
+    }
+
+    func filterData() {
+        filteredData = data
+            .filter { item in
+                var result = true
+                result = result && (inclusionFilter.contains(item.species))
+                result = result && (!onlyFavouritesFilter || favourites.contains(item.uid!))
+
+                let (from, to) = priceRangeFilter
+                if let from {
+                    result = result && (item.price >= from)
+                }
+                if let to {
+                    result = result && (item.price <= to)
+                }
+
+                if let query = containsTextFilter {
+                    result = result && (query.isEmpty
+                        || item.name.lowercased().contains(query)
+                        || item.species.rawValue.lowercased().contains(query)
+                        || item.breed.lowercased().contains(query)
+                        || item.description.lowercased().contains(query))
+                }
+
+                return result
+            }
+            .sorted { l, r in
+                (order == .ascending && l.price < r.price) || (order == .descending && l.price > r.price)
+            }
     }
 
     var filteredData: [Pet] = [] {
         didSet { tableView.reloadData() }
-    }
-
-    func filterData() {
-        filteredData = data.filter { item in
-            var result = true
-            for f in filters {
-                switch f {
-                    case .exclude(let animal):
-                        result = result && (animal != item.species)
-                    case .priceRange(let from, let to):
-                        result = result && ((from ?? 0) ... (to ?? Int.max) ~= item.price)
-                    case .onlyFavourites:
-                        result = result && (favourites.contains(item.uid!))
-                }
-            }
-            return result
-        }
     }
 
     // MARK: Setup
@@ -145,6 +158,12 @@ extension MarketplaceVC {
         )
         plusButton.tintColor = .label
         navigationItem.rightBarButtonItem = plusButton
+
+        let searchController = UISearchController()
+        searchController.searchResultsUpdater = self
+        navigationItem.searchController = searchController
+        
+        navigationController?.navigationBar.prefersLargeTitles = true
     }
 
     private func configureSortButton() {
@@ -159,7 +178,6 @@ extension MarketplaceVC {
                      state: order == .ascending ? .on : .off,
                      handler: { [weak self] _ in
                          self?.order = .ascending
-                         self?.sortData()
                          self?.sortButton.menu = self?.createMenu()
                      }),
             UIAction(title: "More expensive",
@@ -167,7 +185,6 @@ extension MarketplaceVC {
                      state: order == .descending ? .on : .off,
                      handler: { [weak self] _ in
                          self?.order = .descending
-                         self?.sortData()
                          self?.sortButton.menu = self?.createMenu()
                      }),
         ])
@@ -222,7 +239,6 @@ extension MarketplaceVC: MarketplaceDisplayLogic {
 
     func displayPets(_ data: [Pet]) {
         self.data = data
-        sortData()
     }
 
     func displayCurrentUser(_ data: User) {
@@ -241,5 +257,15 @@ extension MarketplaceVC: MarketplaceCellDelegate {
             newFavourites.remove(petID)
         }
         interactor?.updateFavourites(to: newFavourites)
+    }
+}
+
+// MARK: Search Logic
+
+extension MarketplaceVC: UISearchResultsUpdating {
+    func updateSearchResults(for searchController: UISearchController) {
+        guard let searchQuery = searchController.searchBar.text else { return }
+
+        containsTextFilter = searchQuery.lowercased()
     }
 }

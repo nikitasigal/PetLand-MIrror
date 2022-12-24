@@ -8,6 +8,8 @@
 import UIKit
 
 final class FavouritesToggleCell: UITableViewCell {
+    static let identifier = "FavouritesToggleCell"
+    
     @IBOutlet var toggle: UISwitch!
 
     override func awakeFromNib() {

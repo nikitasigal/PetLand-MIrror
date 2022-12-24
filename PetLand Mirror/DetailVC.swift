@@ -29,6 +29,7 @@ final class DetailVC: UIViewController {
         super.viewDidLoad()
 
         title = dataModel.name
+        navigationController?.navigationBar.prefersLargeTitles = true
         
         frameView.layer.cornerRadius = 10
         petImage.layer.cornerRadius = 10

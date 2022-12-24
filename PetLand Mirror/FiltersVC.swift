@@ -9,14 +9,17 @@ import UIKit
 
 class FiltersVC: UIViewController {
     static let identifier = "Marketplace.Filters"
-    
+
     // MARK: Outlets
+
     @IBOutlet var tableView: UITableView!
 
     // MARK: External vars
+
     weak var marketplaceVC: MarketplaceVC!
-    
+
     // MARK: Internal vars
+
     var checkboxCells: [CheckboxCell] = []
     var rangeCell: RangeCell!
     var favouritesToggleCell: FavouritesToggleCell!
@@ -29,13 +32,16 @@ class FiltersVC: UIViewController {
     }
 
     override func viewWillDisappear(_ animated: Bool) {
-        marketplaceVC.filters = Set(
-            checkboxCells.compactMap { cell -> MarketplaceVC.Filter? in
-                cell.isExcluded ? .exclude(cell.animal) : nil
+        for cell in checkboxCells {
+            if cell.isIncluded {
+                marketplaceVC.inclusionFilter.insert(cell.species)
+            } else {
+                marketplaceVC.inclusionFilter.remove(cell.species)
             }
-                + [.priceRange(from: rangeCell.fromInt, to: rangeCell.toInt)]
-                + (favouritesToggleCell.toggle.isOn ? [.onlyFavourites] : [])
-        )
+        }
+
+        marketplaceVC.onlyFavouritesFilter = favouritesToggleCell.toggle.isOn
+        marketplaceVC.priceRangeFilter = (rangeCell.fromInt, rangeCell.toInt)
 
         super.viewWillDisappear(animated)
     }
@@ -56,32 +62,18 @@ extension FiltersVC {
     }
 
     func configureCells() {
-        checkboxCells = Pet.Species.allCases.map { animal -> CheckboxCell in
-            let cell = self.tableView.dequeueReusableCell(withIdentifier: "CheckboxCell") as! CheckboxCell
-            cell.configure(for: animal,
-                           isExcluded: marketplaceVC.filters.contains(.exclude(animal)))
+        checkboxCells = Pet.Species.allCases.map { species -> CheckboxCell in
+            let cell = self.tableView.dequeueReusableCell(withIdentifier: CheckboxCell.identifier) as! CheckboxCell
+            cell.configure(for: species, isIncluded: marketplaceVC.inclusionFilter.contains(species))
             return cell
         }
 
-        rangeCell = tableView.dequeueReusableCell(withIdentifier: "RangeCell") as? RangeCell
-        for f in marketplaceVC.filters {
-            switch f {
-                case .priceRange(let from, let to):
-                    rangeCell.configure(from: from, to: to)
-                default:
-                    break
-            }
-        }
+        rangeCell = tableView.dequeueReusableCell(withIdentifier: RangeCell.identifier) as? RangeCell
+        let (from, to) = marketplaceVC.priceRangeFilter
+        rangeCell.configure(from: from, to: to)
 
-        favouritesToggleCell = tableView.dequeueReusableCell(withIdentifier: "FavouritesToggleCell") as? FavouritesToggleCell
-        for f in marketplaceVC.filters {
-            switch f {
-                case .onlyFavourites:
-                    favouritesToggleCell.toggle.isOn = true
-                default:
-                    break
-            }
-        }
+        favouritesToggleCell = tableView.dequeueReusableCell(withIdentifier: FavouritesToggleCell.identifier) as? FavouritesToggleCell
+        favouritesToggleCell.toggle.isOn = marketplaceVC.onlyFavouritesFilter
     }
 }
 

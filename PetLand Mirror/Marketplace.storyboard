@@ -18,15 +18,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <searchBar contentMode="redraw" searchBarStyle="minimal" placeholder="Search" translatesAutoresizingMaskIntoConstraints="NO" id="CzA-s5-NLz">
-                                <rect key="frame" x="19" y="44" width="337.5" height="56"/>
-                                <textInputTraits key="textInputTraits"/>
-                                <connections>
-                                    <outlet property="delegate" destination="Xs7-I0-J4B" id="sgQ-ZW-86U"/>
-                                </connections>
-                            </searchBar>
                             <button opaque="NO" contentMode="scaleToFill" showsMenuAsPrimaryAction="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QjS-Zf-BZA">
-                                <rect key="frame" x="19" y="100" width="168.5" height="40"/>
+                                <rect key="frame" x="20" y="44" width="167.5" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="I3p-7d-Uld"/>
                                 </constraints>
@@ -42,7 +35,7 @@
                                 </buttonConfiguration>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" showsMenuAsPrimaryAction="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lu1-z5-wCm">
-                                <rect key="frame" x="187.5" y="100" width="169" height="40"/>
+                                <rect key="frame" x="187.5" y="44" width="167.5" height="40"/>
                                 <state key="normal" title="Filter"/>
                                 <buttonConfiguration key="configuration" style="plain" imagePlacement="leading" title="Filter">
                                     <imageReference key="image" image="line.3.horizontal.decrease.circle" catalog="system" symbolScale="default"/>
@@ -53,7 +46,7 @@
                                 </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" estimatedSectionHeaderHeight="-1" sectionFooterHeight="28" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="euY-NS-Dgt">
-                                <rect key="frame" x="0.0" y="140" width="375" height="478"/>
+                                <rect key="frame" x="0.0" y="84" width="375" height="534"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MarketplaceCell" rowHeight="170" id="edU-48-BwG" customClass="MarketplaceCellVC" customModule="PetLand_Mirror" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="50" width="375" height="170"/>
@@ -150,26 +143,22 @@
                         <viewLayoutGuide key="safeArea" id="5Np-KQ-zy9"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="Lu1-z5-wCm" firstAttribute="leading" secondItem="5Np-KQ-zy9" secondAttribute="trailing" multiplier="0.5" id="69t-xb-LvS"/>
-                            <constraint firstItem="CzA-s5-NLz" firstAttribute="centerX" secondItem="5Np-KQ-zy9" secondAttribute="centerX" id="6Ve-61-xSn"/>
-                            <constraint firstItem="QjS-Zf-BZA" firstAttribute="top" secondItem="CzA-s5-NLz" secondAttribute="bottom" id="G3N-ca-BVu"/>
-                            <constraint firstItem="CzA-s5-NLz" firstAttribute="trailing" secondItem="Lu1-z5-wCm" secondAttribute="trailing" id="GWx-Wc-gpq"/>
-                            <constraint firstItem="QjS-Zf-BZA" firstAttribute="trailing" secondItem="5Np-KQ-zy9" secondAttribute="trailing" multiplier="0.5" id="HEQ-Ny-ls3"/>
+                            <constraint firstItem="5Np-KQ-zy9" firstAttribute="trailing" secondItem="Lu1-z5-wCm" secondAttribute="trailing" constant="20" id="Iyt-Qe-NMx"/>
+                            <constraint firstItem="QjS-Zf-BZA" firstAttribute="width" secondItem="Lu1-z5-wCm" secondAttribute="width" id="NHL-54-V99"/>
                             <constraint firstItem="5Np-KQ-zy9" firstAttribute="trailing" secondItem="euY-NS-Dgt" secondAttribute="trailing" id="TrO-rd-aXc"/>
-                            <constraint firstItem="CzA-s5-NLz" firstAttribute="width" secondItem="S4D-jg-JWy" secondAttribute="width" multiplier="0.9" id="ZPh-Gk-7v9"/>
-                            <constraint firstItem="CzA-s5-NLz" firstAttribute="top" secondItem="5Np-KQ-zy9" secondAttribute="top" id="bb0-Q9-YUf"/>
+                            <constraint firstItem="QjS-Zf-BZA" firstAttribute="leading" secondItem="5Np-KQ-zy9" secondAttribute="leading" constant="20" id="UKN-Wb-dcZ"/>
+                            <constraint firstItem="Lu1-z5-wCm" firstAttribute="leading" secondItem="QjS-Zf-BZA" secondAttribute="trailing" id="cwc-F8-eVB"/>
                             <constraint firstItem="euY-NS-Dgt" firstAttribute="top" secondItem="QjS-Zf-BZA" secondAttribute="bottom" id="don-mb-681"/>
+                            <constraint firstItem="QjS-Zf-BZA" firstAttribute="top" secondItem="5Np-KQ-zy9" secondAttribute="top" id="fXL-7f-kta"/>
                             <constraint firstItem="euY-NS-Dgt" firstAttribute="bottom" secondItem="5Np-KQ-zy9" secondAttribute="bottom" id="gOY-uJ-0a8"/>
                             <constraint firstItem="euY-NS-Dgt" firstAttribute="leading" secondItem="5Np-KQ-zy9" secondAttribute="leading" id="iOp-Ci-uvX"/>
-                            <constraint firstItem="Lu1-z5-wCm" firstAttribute="top" secondItem="CzA-s5-NLz" secondAttribute="bottom" id="imi-xr-rcW"/>
                             <constraint firstItem="Lu1-z5-wCm" firstAttribute="height" secondItem="QjS-Zf-BZA" secondAttribute="height" id="noM-Ac-BoY"/>
-                            <constraint firstItem="QjS-Zf-BZA" firstAttribute="leading" secondItem="CzA-s5-NLz" secondAttribute="leading" id="qaV-hJ-FfH"/>
+                            <constraint firstItem="Lu1-z5-wCm" firstAttribute="centerY" secondItem="QjS-Zf-BZA" secondAttribute="centerY" id="uZB-KV-QjM"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Marketplace" id="ikD-3W-wAj"/>
                     <connections>
                         <outlet property="filterButton" destination="Lu1-z5-wCm" id="Yuf-M8-LW7"/>
-                        <outlet property="searchBar" destination="CzA-s5-NLz" id="j1Q-Xo-s1H"/>
                         <outlet property="sortButton" destination="QjS-Zf-BZA" id="JQ3-eg-4qI"/>
                         <outlet property="tableView" destination="euY-NS-Dgt" id="KB9-xG-Nia"/>
                         <segue destination="bTh-0p-YL9" kind="show" identifier="showDetail" id="QdQ-go-g1A"/>
@@ -253,18 +242,12 @@
                                                             </constraints>
                                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                             <textInputTraits key="textInputTraits"/>
-                                                            <connections>
-                                                                <action selector="onEditingDidEnd" destination="6zZ-Hu-6Td" eventType="editingDidEnd" id="nC2-uz-UdM"/>
-                                                            </connections>
                                                         </textField>
                                                         <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="To" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="AGK-LO-oDR">
                                                             <rect key="frame" x="210" y="15" width="113" height="48"/>
                                                             <color key="backgroundColor" systemColor="secondarySystemBackgroundColor"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                             <textInputTraits key="textInputTraits"/>
-                                                            <connections>
-                                                                <action selector="onEditingDidEnd" destination="6zZ-Hu-6Td" eventType="editingDidEnd" id="sLo-rT-kDA"/>
-                                                            </connections>
                                                         </textField>
                                                     </subviews>
                                                     <constraints>

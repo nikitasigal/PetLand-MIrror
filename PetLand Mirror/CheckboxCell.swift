@@ -8,12 +8,14 @@
 import UIKit
 
 final class CheckboxCell: UITableViewCell {
+    static let identifier = "CheckboxCell"
+    
     // Outlets
     @IBOutlet var checkboxButton: UIButton!
     
     // Internal vars
-    var isExcluded = false
-    var animal: Pet.Species!
+    var isIncluded = true
+    var species: Pet.Species!
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -21,28 +23,28 @@ final class CheckboxCell: UITableViewCell {
     }
 
     @IBAction func onCheckboxButtonPress() {
-        isExcluded.toggle()
+        isIncluded.toggle()
         updateImage()
     }
 
     private func updateImage() {
         checkboxButton.setImage(
             UIImage(systemName:
-                isExcluded
-                    ? "square"
-                    : "checkmark.square.fill")!
+                isIncluded
+                    ? "checkmark.square.fill"
+                    : "square")!
                 .withRenderingMode(.alwaysOriginal)
                 .withTintColor(
-                    isExcluded
-                        ? .systemFill
-                        : .systemBlue),
+                    isIncluded
+                        ? .systemBlue
+                        : .systemFill),
             for: .normal)
     }
 
-    func configure(for animal: Pet.Species, isExcluded: Bool) {
-        self.animal = animal
-        self.isExcluded = isExcluded
-        checkboxButton.setTitle(animal.rawValue.uppercasedFirst(), for: .normal)
+    func configure(for species: Pet.Species, isIncluded: Bool) {
+        self.species = species
+        self.isIncluded = isIncluded
+        checkboxButton.setTitle(species.rawValue.uppercasedFirst(), for: .normal)
         updateImage()
     }
 }

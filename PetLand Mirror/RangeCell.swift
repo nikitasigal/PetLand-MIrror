@@ -8,13 +8,20 @@
 import UIKit
 
 final class RangeCell: UITableViewCell {
+    static let identifier = "RangeCell"
+
     // Outlets
     @IBOutlet var fromTF: UITextField!
     @IBOutlet var toTF: UITextField!
 
     // Internal vars
-    var fromInt: Int?
-    var toInt: Int?
+    var fromInt: Int? {
+        Int(fromTF.text!)
+    }
+
+    var toInt: Int? {
+        Int(toTF.text!)
+    }
 
     override func awakeFromNib() {
         fromTF.delegate = self
@@ -25,15 +32,10 @@ final class RangeCell: UITableViewCell {
         if let from {
             fromTF.text = String(from)
         }
-        
+
         if let to {
             toTF.text = String(to)
         }
-    }
-
-    @IBAction func onEditingDidEnd() {
-        fromInt = fromTF.hasText ? Int(fromTF.text!) : nil
-        toInt = toTF.hasText ? Int(toTF.text!) : nil
     }
 }
 
