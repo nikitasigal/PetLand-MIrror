@@ -56,10 +56,9 @@ final class ProfileVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        profileImage.layer.cornerRadius = profileImage.bounds.height / 4
-        profileImage.clipsToBounds = true
-        
         configureNavigationBar()
+        configureImage()
+        configureLabels()
         
         interactor?.fetchCurrentUser()
     }
@@ -68,6 +67,17 @@ final class ProfileVC: UIViewController {
 // MARK: UI Configuration
 
 extension ProfileVC {
+    func configureImage() {
+        profileImage.layer.cornerRadius = profileImage.bounds.height / 4
+        profileImage.clipsToBounds = true
+    }
+    
+    func configureLabels() {
+        nameLabel.text = nil
+        emailLabel.text = nil
+        uuidLabel.text = nil
+    }
+    
     func configureNavigationBar() {
         title = "Profile"
         navigationController?.navigationBar.prefersLargeTitles = true

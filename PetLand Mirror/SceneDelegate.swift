@@ -26,7 +26,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             window.rootViewController = navVC
         } else {
             let vc = UIStoryboard(name: "Navigation", bundle: nil)
-                .instantiateViewController(withIdentifier: "TabBar")
+                .instantiateViewController(withIdentifier: TabBarVC.identifier)
             window.rootViewController = vc
         }
         self.window = window

@@ -18,35 +18,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" showsMenuAsPrimaryAction="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QjS-Zf-BZA">
-                                <rect key="frame" x="20" y="44" width="167.5" height="40"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="I3p-7d-Uld"/>
-                                </constraints>
-                                <menu key="menu" id="iMD-67-tkw">
-                                    <children>
-                                        <command title="By price, descending" id="uwp-Yr-ofF"/>
-                                        <command title="By price, ascending" id="6ou-yT-NjO"/>
-                                    </children>
-                                </menu>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" image="list.bullet.indent" catalog="system" title="Sort">
-                                    <color key="baseForegroundColor" systemColor="labelColor"/>
-                                </buttonConfiguration>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" showsMenuAsPrimaryAction="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lu1-z5-wCm">
-                                <rect key="frame" x="187.5" y="44" width="167.5" height="40"/>
-                                <state key="normal" title="Filter"/>
-                                <buttonConfiguration key="configuration" style="plain" imagePlacement="leading" title="Filter">
-                                    <imageReference key="image" image="line.3.horizontal.decrease.circle" catalog="system" symbolScale="default"/>
-                                    <color key="baseForegroundColor" systemColor="labelColor"/>
-                                </buttonConfiguration>
-                                <connections>
-                                    <action selector="onFilterButtonTouched" destination="Xs7-I0-J4B" eventType="touchUpInside" id="CEM-3e-cyA"/>
-                                </connections>
-                            </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" estimatedSectionHeaderHeight="-1" sectionFooterHeight="28" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="euY-NS-Dgt">
-                                <rect key="frame" x="0.0" y="84" width="375" height="534"/>
+                                <rect key="frame" x="0.0" y="44" width="375" height="534"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MarketplaceCell" rowHeight="170" id="edU-48-BwG" customClass="MarketplaceCellVC" customModule="PetLand_Mirror" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="50" width="375" height="170"/>
@@ -139,21 +112,50 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" showsMenuAsPrimaryAction="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QjS-Zf-BZA">
+                                <rect key="frame" x="0.0" y="578" width="187.5" height="40"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="I3p-7d-Uld"/>
+                                </constraints>
+                                <menu key="menu" id="iMD-67-tkw">
+                                    <children>
+                                        <command title="By price, descending" id="uwp-Yr-ofF"/>
+                                        <command title="By price, ascending" id="6ou-yT-NjO"/>
+                                    </children>
+                                </menu>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="list.bullet.indent" catalog="system" title="Sort">
+                                    <color key="baseForegroundColor" systemColor="labelColor"/>
+                                </buttonConfiguration>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" showsMenuAsPrimaryAction="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lu1-z5-wCm">
+                                <rect key="frame" x="187.5" y="578" width="187.5" height="40"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <state key="normal" title="Filter"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Filter">
+                                    <imageReference key="image" image="line.3.horizontal.decrease.circle" catalog="system"/>
+                                    <color key="baseForegroundColor" systemColor="labelColor"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="onFilterButtonTouched" destination="Xs7-I0-J4B" eventType="touchUpInside" id="CEM-3e-cyA"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="5Np-KQ-zy9"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="5Np-KQ-zy9" firstAttribute="trailing" secondItem="Lu1-z5-wCm" secondAttribute="trailing" constant="20" id="Iyt-Qe-NMx"/>
+                            <constraint firstItem="5Np-KQ-zy9" firstAttribute="trailing" secondItem="Lu1-z5-wCm" secondAttribute="trailing" id="Iyt-Qe-NMx"/>
                             <constraint firstItem="QjS-Zf-BZA" firstAttribute="width" secondItem="Lu1-z5-wCm" secondAttribute="width" id="NHL-54-V99"/>
                             <constraint firstItem="5Np-KQ-zy9" firstAttribute="trailing" secondItem="euY-NS-Dgt" secondAttribute="trailing" id="TrO-rd-aXc"/>
-                            <constraint firstItem="QjS-Zf-BZA" firstAttribute="leading" secondItem="5Np-KQ-zy9" secondAttribute="leading" constant="20" id="UKN-Wb-dcZ"/>
+                            <constraint firstItem="QjS-Zf-BZA" firstAttribute="leading" secondItem="5Np-KQ-zy9" secondAttribute="leading" id="UKN-Wb-dcZ"/>
+                            <constraint firstItem="euY-NS-Dgt" firstAttribute="top" secondItem="5Np-KQ-zy9" secondAttribute="top" id="ZYG-Qw-FYY"/>
                             <constraint firstItem="Lu1-z5-wCm" firstAttribute="leading" secondItem="QjS-Zf-BZA" secondAttribute="trailing" id="cwc-F8-eVB"/>
-                            <constraint firstItem="euY-NS-Dgt" firstAttribute="top" secondItem="QjS-Zf-BZA" secondAttribute="bottom" id="don-mb-681"/>
-                            <constraint firstItem="QjS-Zf-BZA" firstAttribute="top" secondItem="5Np-KQ-zy9" secondAttribute="top" id="fXL-7f-kta"/>
-                            <constraint firstItem="euY-NS-Dgt" firstAttribute="bottom" secondItem="5Np-KQ-zy9" secondAttribute="bottom" id="gOY-uJ-0a8"/>
                             <constraint firstItem="euY-NS-Dgt" firstAttribute="leading" secondItem="5Np-KQ-zy9" secondAttribute="leading" id="iOp-Ci-uvX"/>
                             <constraint firstItem="Lu1-z5-wCm" firstAttribute="height" secondItem="QjS-Zf-BZA" secondAttribute="height" id="noM-Ac-BoY"/>
+                            <constraint firstItem="euY-NS-Dgt" firstAttribute="bottom" secondItem="QjS-Zf-BZA" secondAttribute="top" id="uCT-rT-BPU"/>
                             <constraint firstItem="Lu1-z5-wCm" firstAttribute="centerY" secondItem="QjS-Zf-BZA" secondAttribute="centerY" id="uZB-KV-QjM"/>
+                            <constraint firstItem="QjS-Zf-BZA" firstAttribute="bottom" secondItem="5Np-KQ-zy9" secondAttribute="bottom" id="uyg-LD-y8e"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Marketplace" id="ikD-3W-wAj"/>
@@ -402,7 +404,7 @@
                                                     <rect key="frame" x="0.0" y="0.0" width="343" height="55"/>
                                                     <subviews>
                                                         <button opaque="NO" contentMode="scaleToFill" semanticContentAttribute="forceRightToLeft" showsMenuAsPrimaryAction="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" changesSelectionAsPrimaryAction="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hsE-RR-afd">
-                                                            <rect key="frame" x="20" y="20" width="57.5" height="15"/>
+                                                            <rect key="frame" x="20" y="20" width="58.5" height="15"/>
                                                             <menu key="menu" id="tQ4-ad-ysQ">
                                                                 <children>
                                                                     <command title="Item 1" id="fT6-dS-uki"/>

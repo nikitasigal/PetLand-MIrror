@@ -160,7 +160,7 @@ extension RegisterVC: RegisterDisplayLogic {
 
     func displayCompletion() {
         let vc = UIStoryboard(name: "Navigation", bundle: nil)
-            .instantiateViewController(withIdentifier: "TabBar")
+            .instantiateViewController(withIdentifier: TabBarVC.identifier)
         present(vc, animated: true)
     }
 }
